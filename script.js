@@ -411,6 +411,27 @@ if (timelineLine) {
 }
 
 /* ============================================
+   VIDEO BACKGROUND CYCLE
+   ============================================ */
+const heroVideo = document.getElementById('hero-video');
+const videoSources = ['assets/aurora1.mp4', 'assets/aurora3.mp4', 'assets/aurora2.mp4'];
+let currentVideoIndex = 0;
+
+heroVideo.addEventListener('ended', () => {
+    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+    heroVideo.style.opacity = '0';
+    setTimeout(() => {
+        heroVideo.src = videoSources[currentVideoIndex];
+        heroVideo.load();
+        heroVideo.play();
+        heroVideo.style.opacity = '1';
+    }, 500);
+});
+
+// Add smooth transition for video opacity
+heroVideo.style.transition = 'opacity 0.8s ease';
+
+/* ============================================
    GLASS CARD SPOTLIGHT EFFECT
    ============================================ */
 document.querySelectorAll('.glass-card').forEach(card => {
