@@ -1,19 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gautham — Portfolio</title>
+    <title>Gautham Binoy — Portfolio</title>
+    <meta name="description" content="Gautham Binoy — Full Stack Developer, AI Engineer & Cloud Enthusiast. Building AI-powered applications and scalable web platforms.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">G<span>.</span></div>
+            <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles" class="particles-canvas"></canvas>
+
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
     <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
@@ -69,12 +96,14 @@
                 </span>
             </h1>
 
-            <p class="hero-subtitle reveal" style="--delay: 0.5s">
-                Full Stack Developer / AI Engineer / Cloud Enthusiast
-            </p>
+            <div class="hero-typing reveal" style="--delay: 0.5s">
+                <span class="typing-prefix">&gt;</span>
+                <span class="typing-text" id="typing-text"></span>
+                <span class="typing-cursor">|</span>
+            </div>
 
             <div class="hero-cta reveal" style="--delay: 0.6s">
-                <a href="#projects" class="btn-primary">
+                <a href="#projects" class="btn-primary btn-glow">
                     <span>Explore My Work</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </a>
@@ -88,7 +117,7 @@
         </div>
 
         <div class="hero-side-text left">PORTFOLIO 2026</div>
-        <div class="hero-side-text right">GAUTHAM</div>
+        <div class="hero-side-text right">GAUTHAM BINOY</div>
     </section>
 
     <!-- Marquee -->
@@ -132,18 +161,19 @@
                             <span>G</span>
                         </div>
                         <div class="about-image-border"></div>
+                        <div class="about-image-glow"></div>
                     </div>
                     <div class="about-stats">
-                        <div class="stat-item">
+                        <div class="stat-item glass-card">
                             <span class="stat-number" data-count="3">0</span><span class="accent">+</span>
                             <span class="stat-label">Years Exp.</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item glass-card">
                             <span class="stat-number" data-count="20">0</span><span class="accent">+</span>
                             <span class="stat-label">Projects</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-count="10">0</span><span class="accent">+</span>
+                        <div class="stat-item glass-card">
+                            <span class="stat-number" data-count="15">0</span><span class="accent">+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -168,7 +198,7 @@
                         open source, or experimenting with the latest in AI and LLMs.
                     </p>
 
-                    <div class="about-details reveal">
+                    <div class="about-details glass-card reveal">
                         <div class="detail-item">
                             <span class="detail-label">Location</span>
                             <span class="detail-value">India</span>
@@ -183,7 +213,7 @@
                         </div>
                     </div>
 
-                    <a href="#" class="btn-primary reveal" style="--delay:0.2s">
+                    <a href="#" class="btn-primary btn-glow reveal" style="--delay:0.2s">
                         <span>Download Resume</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     </a>
@@ -210,7 +240,7 @@
             </div>
 
             <div class="skills-grid">
-                <div class="skill-category reveal">
+                <div class="skill-category glass-card reveal">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
@@ -226,7 +256,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category reveal" style="--delay:0.1s">
+                <div class="skill-category glass-card reveal" style="--delay:0.1s">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -246,7 +276,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category reveal" style="--delay:0.2s">
+                <div class="skill-category glass-card reveal" style="--delay:0.2s">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -268,7 +298,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category reveal" style="--delay:0.3s">
+                <div class="skill-category glass-card reveal" style="--delay:0.3s">
                     <div class="skill-category-header">
                         <div class="skill-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
@@ -453,7 +483,7 @@
             </div>
 
             <div class="projects-more reveal">
-                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="btn-outline">
+                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="btn-outline btn-glow">
                     <span>View All Projects</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </a>
@@ -478,7 +508,7 @@
                     <div class="timeline-dot">
                         <div class="timeline-dot-inner"></div>
                     </div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-date">2025 — Present</div>
                         <h3 class="timeline-title">Software Developer</h3>
                         <p class="timeline-company">Company Name</p>
@@ -498,7 +528,7 @@
                     <div class="timeline-dot">
                         <div class="timeline-dot-inner"></div>
                     </div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-date">2024 — 2025</div>
                         <h3 class="timeline-title">Full Stack Intern</h3>
                         <p class="timeline-company">Startup Inc.</p>
@@ -518,7 +548,7 @@
                     <div class="timeline-dot">
                         <div class="timeline-dot-inner"></div>
                     </div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <div class="timeline-date">2023 — 2024</div>
                         <h3 class="timeline-title">Open Source Contributor</h3>
                         <p class="timeline-company">Various Projects</p>
@@ -554,7 +584,7 @@
                     </p>
 
                     <div class="contact-links reveal">
-                        <a href="mailto:gauthambinoy@users.noreply.github.com" class="contact-link-item">
+                        <a href="mailto:gauthambinoy@users.noreply.github.com" class="contact-link-item glass-card">
                             <div class="contact-link-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             </div>
@@ -563,7 +593,7 @@
                                 <span class="contact-link-value">gauthambinoy@email.com</span>
                             </div>
                         </a>
-                        <a href="https://github.com/gauthambinoy" target="_blank" class="contact-link-item">
+                        <a href="https://github.com/gauthambinoy" target="_blank" class="contact-link-item glass-card">
                             <div class="contact-link-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
                             </div>
@@ -572,7 +602,7 @@
                                 <span class="contact-link-value">github.com/gauthambinoy</span>
                             </div>
                         </a>
-                        <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="contact-link-item">
+                        <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="contact-link-item glass-card">
                             <div class="contact-link-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                             </div>
@@ -581,7 +611,7 @@
                                 <span class="contact-link-value">linkedin.com/in/gauthambinoy</span>
                             </div>
                         </a>
-                        <a href="https://twitter.com/gauthambinoy" target="_blank" class="contact-link-item">
+                        <a href="https://twitter.com/gauthambinoy" target="_blank" class="contact-link-item glass-card">
                             <div class="contact-link-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
                             </div>
@@ -594,7 +624,7 @@
                 </div>
 
                 <div class="contact-right reveal">
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form glass-card" id="contact-form">
                         <div class="form-group">
                             <input type="text" id="name" placeholder=" " required autocomplete="off">
                             <label for="name">Your Name</label>
@@ -610,7 +640,7 @@
                             <label for="message">Your Message</label>
                             <div class="form-line"></div>
                         </div>
-                        <button type="submit" class="btn-primary form-btn">
+                        <button type="submit" class="btn-primary btn-glow form-btn">
                             <span>Send Message</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         </button>
@@ -629,7 +659,7 @@
                     <p>Designed & built with passion.</p>
                 </div>
                 <div class="footer-right">
-                    <p>&copy; 2026 Gautham. All rights reserved.</p>
+                    <p>&copy; 2026 Gautham Binoy. All rights reserved.</p>
                 </div>
             </div>
         </div>
