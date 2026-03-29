@@ -1,450 +1,299 @@
-/* ============================================
-   PRELOADER
-   ============================================ */
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('hidden');
-        // Trigger hero reveals
-        document.querySelectorAll('.hero .reveal').forEach((el, i) => {
-            setTimeout(() => el.classList.add('active'), i * 120);
-        });
-    }, 1800);
+/* ===================================================
+   SPLITTING.JS — Initialize text splitting
+   =================================================== */
+Splitting();
+
+/* ===================================================
+   LENIS — Smooth scroll
+   =================================================== */
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    wheelMultiplier: 1,
 });
 
-/* ============================================
-   PARTICLE SYSTEM
-   ============================================ */
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let particles = [];
-let mouse = { x: 0, y: 0 };
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+/* ===================================================
+   PRELOADER — Count up then clip away
+   =================================================== */
+const preloaderEl = document.getElementById('preloader');
+const counterEl = document.getElementById('preloader-counter');
+let count = 0;
 
-class Particle {
-    constructor() {
-        this.reset();
+const preloadInterval = setInterval(() => {
+    count += Math.floor(Math.random() * 8) + 2;
+    if (count >= 100) {
+        count = 100;
+        clearInterval(preloadInterval);
+        counterEl.textContent = 100;
+        setTimeout(() => {
+            preloaderEl.classList.add('done');
+            // Animate hero text in after preloader
+            setTimeout(triggerHeroReveal, 600);
+        }, 400);
     }
+    counterEl.textContent = count;
+}, 40);
 
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.5 + 0.1;
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Mouse repulsion
-        const dx = this.x - mouse.x;
-        const dy = this.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-            const force = (120 - dist) / 120;
-            this.x += (dx / dist) * force * 2;
-            this.y += (dy / dist) * force * 2;
-        }
-
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-            this.reset();
-        }
-    }
-
-    draw() {
-        const theme = document.documentElement.getAttribute('data-theme');
-        const color = theme === 'light' ? '0,102,255' : '0,240,255';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color},${this.opacity})`;
-        ctx.fill();
-    }
+function triggerHeroReveal() {
+    document.querySelectorAll('.hero [data-splitting]').forEach((el, i) => {
+        setTimeout(() => el.classList.add('is-visible'), i * 150);
+    });
 }
 
-function initParticles() {
-    particles = [];
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
+/* ===================================================
+   CURSOR
+   =================================================== */
+const dot = document.getElementById('cursor-dot');
+const circle = document.getElementById('cursor-circle');
+const trailCanvas = document.getElementById('cursor-trail');
+const trailCtx = trailCanvas.getContext('2d');
+
+let mx = 0, my = 0, cx = 0, cy = 0;
+const trail = [];
+
+function resizeTrail() {
+    trailCanvas.width = window.innerWidth;
+    trailCanvas.height = window.innerHeight;
 }
-initParticles();
-
-function drawConnections() {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const color = theme === 'light' ? '0,102,255' : '0,240,255';
-
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 150) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(${color},${0.06 * (1 - dist / 150)})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    drawConnections();
-    requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-/* ============================================
-   CUSTOM CURSOR
-   ============================================ */
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursor-follower');
-let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
+resizeTrail();
+window.addEventListener('resize', resizeTrail);
 
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+    trail.push({ x: mx, y: my, life: 1 });
+    if (trail.length > 40) trail.shift();
 });
 
-function animateFollower() {
-    followerX += (mouseX - followerX) * 0.1;
-    followerY += (mouseY - followerY) * 0.1;
-    follower.style.left = followerX + 'px';
-    follower.style.top = followerY + 'px';
-    requestAnimationFrame(animateFollower);
+function animateCursor() {
+    cx += (mx - cx) * 0.1;
+    cy += (my - cy) * 0.1;
+    circle.style.left = cx + 'px';
+    circle.style.top = cy + 'px';
+
+    // Trail
+    trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+    const theme = document.documentElement.getAttribute('data-theme');
+    const rgb = theme === 'light' ? '68,0,255' : '200,255,0';
+
+    trail.forEach((p) => {
+        p.life -= 0.025;
+        if (p.life <= 0) return;
+        trailCtx.beginPath();
+        trailCtx.arc(p.x, p.y, p.life * 6, 0, Math.PI * 2);
+        trailCtx.fillStyle = `rgba(${rgb},${p.life * 0.3})`;
+        trailCtx.fill();
+    });
+    while (trail.length && trail[0].life <= 0) trail.shift();
+
+    requestAnimationFrame(animateCursor);
 }
-animateFollower();
+animateCursor();
 
-const hoverTargets = document.querySelectorAll('a, button, .skill-tag, .project-card, .stat-item, .timeline-content, .contact-link-item');
-hoverTargets.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+// Cursor hover states
+document.querySelectorAll('a, button, .skill-pill, .project-panel, .contact-pill').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
 });
 
-/* ============================================
-   THEME TOGGLE
-   ============================================ */
-const themeToggle = document.getElementById('theme-toggle');
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
+/* ===================================================
+   THEME
+   =================================================== */
+const themeBtn = document.getElementById('theme-btn');
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
 
-themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+themeBtn.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
 });
 
-/* ============================================
-   BACK TO TOP
-   ============================================ */
-const backToTop = document.getElementById('back-to-top');
+/* ===================================================
+   NAV
+   =================================================== */
+const burger = document.getElementById('nav-burger');
+const menuOverlay = document.getElementById('menu-overlay');
+const menuLinks = document.querySelectorAll('.menu-link');
 
-window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 500);
-});
-
-backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-/* ============================================
-   NAVIGATION
-   ============================================ */
-const nav = document.getElementById('nav');
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
-
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-});
-
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
-
-/* ============================================
-   SMOOTH SCROLL
-   ============================================ */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offset = 80;
-            const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-        }
-    });
-});
-
-/* ============================================
-   TYPING EFFECT
-   ============================================ */
-const typingEl = document.getElementById('typing-text');
-const phrases = [
-    'Full Stack Developer',
-    'AI / ML Engineer',
-    'Cloud & Security Enthusiast',
-    'Open Source Contributor',
-    'Building the future, one commit at a time.'
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typeSpeed = 60;
-
-function typeEffect() {
-    const current = phrases[phraseIndex];
-
-    if (isDeleting) {
-        typingEl.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 30;
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menuOverlay.classList.toggle('open');
+    if (menuOverlay.classList.contains('open')) {
+        lenis.stop();
     } else {
-        typingEl.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 60;
+        lenis.start();
     }
+});
 
-    if (!isDeleting && charIndex === current.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 400;
-    }
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        menuOverlay.classList.remove('open');
+        lenis.start();
+    });
+});
 
-    setTimeout(typeEffect, typeSpeed);
-}
+/* Smooth scroll for anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { offset: -80 });
+    });
+});
 
-setTimeout(typeEffect, 2200);
+/* ===================================================
+   GSAP + ScrollTrigger — Scroll animations
+   =================================================== */
+gsap.registerPlugin(ScrollTrigger);
 
-/* ============================================
-   REVEAL ON SCROLL
-   ============================================ */
-const reveals = document.querySelectorAll('.reveal');
+// Fade-up elements
+document.querySelectorAll('.fade-up').forEach(el => {
+    gsap.to(el, {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+});
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            revealObserver.unobserve(entry.target);
+// Split text reveals on scroll
+document.querySelectorAll('.section [data-splitting]').forEach(el => {
+    ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        onEnter: () => el.classList.add('is-visible'),
+    });
+});
+
+/* ===================================================
+   HORIZONTAL SCROLL — Projects
+   =================================================== */
+const workTrack = document.getElementById('work-track');
+if (workTrack) {
+    const totalScroll = workTrack.scrollWidth - window.innerWidth;
+
+    gsap.to(workTrack, {
+        x: () => -totalScroll,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: '.work-horizontal',
+            start: 'top top',
+            end: () => `+=${totalScroll}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
         }
     });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-reveals.forEach(el => revealObserver.observe(el));
-
-/* ============================================
-   STATS COUNTER ANIMATION
-   ============================================ */
-const statNumbers = document.querySelectorAll('.stat-number');
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.getAttribute('data-count'));
-            animateCounter(el, target);
-            counterObserver.unobserve(el);
-        }
-    });
-}, { threshold: 0.5 });
-
-statNumbers.forEach(el => counterObserver.observe(el));
-
-function animateCounter(el, target) {
-    let current = 0;
-    const duration = 1500;
-    const stepTime = Math.max(Math.floor(duration / target), 30);
-
-    const timer = setInterval(() => {
-        current++;
-        el.textContent = current;
-        if (current >= target) clearInterval(timer);
-    }, stepTime);
 }
 
-/* ============================================
-   ACTIVE NAV LINK HIGHLIGHT
-   ============================================ */
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
+/* ===================================================
+   MARQUEE — Scroll-velocity driven
+   =================================================== */
+const marqueeTrack = document.getElementById('marquee-1');
+let marqueeX = 0;
+let scrollVelocity = 0;
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-                link.style.color = link.getAttribute('href') === `#${id}` ? 'var(--text)' : '';
+lenis.on('scroll', ({ velocity }) => { scrollVelocity = velocity; });
+
+gsap.ticker.add(() => {
+    const speed = 0.5 + Math.abs(scrollVelocity) * 0.15;
+    marqueeX -= speed;
+    if (marqueeX < -(marqueeTrack.scrollWidth / 2)) marqueeX = 0;
+    gsap.set(marqueeTrack, { x: marqueeX });
+});
+
+/* ===================================================
+   STAT COUNTERS
+   =================================================== */
+document.querySelectorAll('.stat-num').forEach(el => {
+    const target = parseInt(el.getAttribute('data-count'));
+    ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+            gsap.to({ val: 0 }, {
+                val: target, duration: 1.5, ease: 'power2.out',
+                onUpdate: function () { el.textContent = Math.round(this.targets()[0].val); }
             });
         }
     });
-}, { threshold: 0.3 });
+});
 
-sections.forEach(section => sectionObserver.observe(section));
-
-/* ============================================
-   MAGNETIC BUTTON EFFECT
-   ============================================ */
-document.querySelectorAll('.btn-primary, .btn-secondary, .btn-outline').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
+/* ===================================================
+   MAGNETIC ELEMENTS
+   =================================================== */
+document.querySelectorAll('[data-magnetic]').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power2.out' });
     });
-
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-    });
-});
-
-/* ============================================
-   TILT EFFECT ON PROJECT CARDS
-   ============================================ */
-document.querySelectorAll('.project-preview').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.03)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+    el.addEventListener('mouseleave', () => {
+        gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.3)' });
     });
 });
 
-/* ============================================
-   PARALLAX ON HERO ORBS
-   ============================================ */
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    document.querySelectorAll('.hero-orb').forEach((orb, i) => {
-        const speed = (i + 1) * 0.08;
-        orb.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-});
-
-/* ============================================
-   FORM HANDLING
-   ============================================ */
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('.form-btn span');
-    const originalText = btn.textContent;
-    btn.textContent = 'Sent!';
-    form.reset();
-    setTimeout(() => { btn.textContent = originalText; }, 2500);
-});
-
-/* ============================================
-   SKILL TAG SCRAMBLE EFFECT
-   ============================================ */
-document.querySelectorAll('.skill-tag').forEach(tag => {
-    const original = tag.textContent;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%';
-
-    tag.addEventListener('mouseenter', () => {
-        let iterations = 0;
-        const interval = setInterval(() => {
-            tag.textContent = original.split('').map((char, i) => {
-                if (i < iterations) return original[i];
-                return chars[Math.floor(Math.random() * chars.length)];
-            }).join('');
-            iterations += 0.5;
-            if (iterations >= original.length) {
-                tag.textContent = original;
-                clearInterval(interval);
-            }
+/* ===================================================
+   SKILL PILL SCRAMBLE
+   =================================================== */
+document.querySelectorAll('.skill-pill').forEach(pill => {
+    const original = pill.textContent;
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567@#';
+    pill.addEventListener('mouseenter', () => {
+        let iter = 0;
+        const iv = setInterval(() => {
+            pill.textContent = original.split('').map((c, i) =>
+                i < iter ? original[i] : chars[Math.floor(Math.random() * chars.length)]
+            ).join('');
+            iter += 0.5;
+            if (iter >= original.length) { pill.textContent = original; clearInterval(iv); }
         }, 25);
     });
 });
 
-/* ============================================
-   TIMELINE LINE FILL ON SCROLL
-   ============================================ */
-const timelineLine = document.querySelector('.timeline-line');
-if (timelineLine) {
-    const timeline = document.querySelector('.timeline');
-    window.addEventListener('scroll', () => {
-        const rect = timeline.getBoundingClientRect();
-        let progress = (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
-        progress = Math.max(0, Math.min(1, progress));
-        timelineLine.style.background = `linear-gradient(to bottom, var(--accent) ${progress * 100}%, var(--border) ${progress * 100}%)`;
+/* ===================================================
+   3D TILT — Project images
+   =================================================== */
+document.querySelectorAll('.project-img').forEach(img => {
+    img.addEventListener('mousemove', (e) => {
+        const rect = img.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(img, {
+            rotateY: x * 15, rotateX: -y * 15, scale: 1.02,
+            duration: 0.4, ease: 'power2.out',
+            transformPerspective: 800,
+        });
     });
-}
+    img.addEventListener('mouseleave', () => {
+        gsap.to(img, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: 'power2.out' });
+    });
+});
 
-/* ============================================
-   VIDEO BACKGROUND CYCLE
-   ============================================ */
-const heroVideo = document.getElementById('hero-video');
-const videoSources = ['assets/aurora1.mp4', 'assets/aurora3.mp4', 'assets/aurora2.mp4'];
-let currentVideoIndex = 0;
+/* ===================================================
+   VIDEO BG — Cycle aurora clips
+   =================================================== */
+const bgVideo = document.getElementById('bg-video');
+const videos = ['assets/aurora1.mp4', 'assets/aurora3.mp4', 'assets/aurora2.mp4'];
+let vidIdx = 0;
 
-heroVideo.addEventListener('ended', () => {
-    currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-    heroVideo.style.opacity = '0';
+bgVideo.addEventListener('ended', () => {
+    vidIdx = (vidIdx + 1) % videos.length;
+    bgVideo.style.opacity = '0';
     setTimeout(() => {
-        heroVideo.src = videoSources[currentVideoIndex];
-        heroVideo.load();
-        heroVideo.play();
-        heroVideo.style.opacity = '1';
+        bgVideo.src = videos[vidIdx];
+        bgVideo.load();
+        bgVideo.play();
+        bgVideo.style.opacity = '1';
     }, 500);
 });
-
-// Add smooth transition for video opacity
-heroVideo.style.transition = 'opacity 0.8s ease';
-
-/* ============================================
-   GLASS CARD SPOTLIGHT EFFECT
-   ============================================ */
-document.querySelectorAll('.glass-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--spotlight-x', x + 'px');
-        card.style.setProperty('--spotlight-y', y + 'px');
-        card.style.background = `radial-gradient(300px circle at var(--spotlight-x) var(--spotlight-y), rgba(0,240,255,0.04), transparent 60%), var(--glass)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.background = '';
-    });
-});
+bgVideo.style.transition = 'opacity 0.8s ease';
