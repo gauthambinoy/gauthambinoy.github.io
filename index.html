@@ -3,656 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gautham Binoy — Portfolio</title>
-    <meta name="description" content="Gautham Binoy — Full Stack Developer, AI Engineer & Cloud Enthusiast. Building AI-powered applications and scalable web platforms.">
+    <title>Gautham Binoy — Developer & Engineer</title>
+    <meta name="description" content="Gautham Binoy — Full Stack Developer, AI Engineer. Building intelligent systems and beautiful interfaces.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-logo">G<span>.</span></div>
-            <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
-        </div>
+        <div class="preloader-counter" id="preloader-counter">0</div>
     </div>
 
-    <!-- Global Video Background -->
-    <div class="global-video-wrap">
-        <video class="hero-video" autoplay muted loop playsinline id="hero-video">
+    <!-- Grain overlay -->
+    <div class="grain"></div>
+
+    <!-- Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-circle" id="cursor-circle"></div>
+    <canvas class="cursor-trail-canvas" id="cursor-trail"></canvas>
+
+    <!-- Global Video BG -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline id="bg-video">
             <source src="assets/aurora1.mp4" type="video/mp4">
         </video>
-        <div class="global-video-overlay"></div>
+        <div class="video-overlay"></div>
     </div>
 
-    <!-- Particle Canvas -->
-    <canvas id="particles" class="particles-canvas"></canvas>
-
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursor-follower"></div>
-
-    <!-- Noise Overlay -->
-    <div class="noise-overlay"></div>
-
     <!-- Theme Toggle -->
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-    </button>
-
-    <!-- Back to Top -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    <button class="theme-btn" id="theme-btn" aria-label="Toggle theme" data-magnetic>
+        <div class="theme-btn-inner">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
     </button>
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
-        <a href="#" class="nav-logo">G<span class="accent">.</span></a>
+        <a href="#hero" class="nav-logo" data-magnetic>GB</a>
         <div class="nav-links">
-            <a href="#about" class="nav-link" data-index="01">About</a>
-            <a href="#skills" class="nav-link" data-index="02">Skills</a>
-            <a href="#projects" class="nav-link" data-index="03">Projects</a>
-            <a href="#experience" class="nav-link" data-index="04">Experience</a>
-            <a href="#contact" class="nav-link" data-index="05">Contact</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <button class="nav-menu-btn" id="menu-btn">
-            <span></span><span></span>
-        </button>
+        <button class="nav-burger" id="nav-burger" data-magnetic><span></span><span></span></button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div class="mobile-menu-links">
-            <a href="#about" class="mobile-link"><span>01</span>About</a>
-            <a href="#skills" class="mobile-link"><span>02</span>Skills</a>
-            <a href="#projects" class="mobile-link"><span>03</span>Projects</a>
-            <a href="#experience" class="mobile-link"><span>04</span>Experience</a>
-            <a href="#contact" class="mobile-link"><span>05</span>Contact</a>
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-links">
+            <a href="#about" class="menu-link" data-splitting>About</a>
+            <a href="#work" class="menu-link" data-splitting>Work</a>
+            <a href="#skills" class="menu-link" data-splitting>Skills</a>
+            <a href="#contact" class="menu-link" data-splitting>Contact</a>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="hero-bg-grid"></div>
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
-
         <div class="hero-content">
-            <div class="hero-badge reveal">
-                <span class="pulse-dot"></span>
-                Available for opportunities
-            </div>
-
-            <h1 class="hero-title">
-                <span class="hero-line reveal">
-                    <span class="hero-text-inner">Hi, I'm <span class="gradient-text">Gautham</span></span>
-                </span>
-                <span class="hero-line reveal" style="--delay: 0.1s">
-                    <span class="hero-text-inner">I craft digital</span>
-                </span>
-                <span class="hero-line reveal" style="--delay: 0.2s">
-                    <span class="hero-text-inner"><span class="outline-text">experiences</span> that</span>
-                </span>
-                <span class="hero-line reveal" style="--delay: 0.3s">
-                    <span class="hero-text-inner">matter<span class="accent">.</span></span>
-                </span>
+            <p class="hero-greeting" data-splitting>Hello, I'm</p>
+            <h1 class="hero-name">
+                <span class="hero-name-line" data-splitting>Gautham</span>
+                <span class="hero-name-line stroke-text" data-splitting>Binoy</span>
             </h1>
-
-            <div class="hero-typing reveal" style="--delay: 0.5s">
-                <span class="typing-prefix">&gt;</span>
-                <span class="typing-text" id="typing-text"></span>
-                <span class="typing-cursor">|</span>
-            </div>
-
-            <div class="hero-cta reveal" style="--delay: 0.6s">
-                <a href="#projects" class="btn-primary btn-glow">
-                    <span>Explore My Work</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </a>
-                <a href="#contact" class="btn-secondary">Let's Talk</a>
+            <div class="hero-role">
+                <div class="hero-role-line"></div>
+                <p data-splitting>Full Stack Developer & AI Engineer</p>
+                <div class="hero-role-line"></div>
             </div>
         </div>
 
-        <div class="hero-scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
+        <div class="hero-footer">
+            <div class="hero-scroll">
+                <div class="hero-scroll-line"></div>
+                <span>Scroll to explore</span>
+            </div>
+            <div class="hero-location">
+                <span>Based in India</span>
+                <span class="hero-available"><span class="dot"></span> Open to work</span>
+            </div>
         </div>
-
-        <div class="hero-side-text left">PORTFOLIO 2026</div>
-        <div class="hero-side-text right">GAUTHAM BINOY</div>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee-section">
-        <div class="marquee-track">
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee-wrap">
+        <div class="marquee-track" id="marquee-1">
             <div class="marquee-content">
-                <span>FULL STACK DEVELOPER</span>
-                <span class="marquee-dot"></span>
-                <span>AI / ML ENGINEER</span>
-                <span class="marquee-dot"></span>
-                <span>CLOUD &amp; SECURITY</span>
-                <span class="marquee-dot"></span>
-                <span>OPEN SOURCE</span>
-                <span class="marquee-dot"></span>
-                <span>FULL STACK DEVELOPER</span>
-                <span class="marquee-dot"></span>
-                <span>AI / ML ENGINEER</span>
-                <span class="marquee-dot"></span>
-                <span>CLOUD &amp; SECURITY</span>
-                <span class="marquee-dot"></span>
-                <span>OPEN SOURCE</span>
-                <span class="marquee-dot"></span>
+                <span>Full Stack Development</span><span class="sep">/</span>
+                <span>AI & Machine Learning</span><span class="sep">/</span>
+                <span>Cloud Architecture</span><span class="sep">/</span>
+                <span>Open Source</span><span class="sep">/</span>
+                <span>Full Stack Development</span><span class="sep">/</span>
+                <span>AI & Machine Learning</span><span class="sep">/</span>
+                <span>Cloud Architecture</span><span class="sep">/</span>
+                <span>Open Source</span><span class="sep">/</span>
             </div>
         </div>
     </div>
 
-    <!-- About Section -->
+    <!-- ===== ABOUT ===== -->
     <section class="section about" id="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-index">01</span>
-                <h2 class="section-title reveal">
-                    <span class="section-title-inner">About <span class="gradient-text">Me</span></span>
-                </h2>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-image-col reveal">
-                    <div class="about-image-wrapper">
-                        <div class="about-image-placeholder">
-                            <span>G</span>
-                        </div>
-                        <div class="about-image-border"></div>
-                        <div class="about-image-glow"></div>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-item glass-card">
-                            <span class="stat-number" data-count="3">0</span><span class="accent">+</span>
-                            <span class="stat-label">Years Exp.</span>
-                        </div>
-                        <div class="stat-item glass-card">
-                            <span class="stat-number" data-count="20">0</span><span class="accent">+</span>
+            <div class="section-label"><span>01</span> About</div>
+            <div class="about-layout">
+                <div class="about-left">
+                    <h2 class="about-heading" data-splitting>
+                        I build things that live on the internet and solve real problems.
+                    </h2>
+                </div>
+                <div class="about-right">
+                    <p class="about-text fade-up">
+                        I'm a full stack developer obsessed with building
+                        <strong>AI-powered applications</strong> and scalable platforms.
+                        From real-time dashboards aggregating 200+ APIs to AI text detection
+                        systems with 17-signal ensemble pipelines — I ship products end-to-end.
+                    </p>
+                    <p class="about-text fade-up">
+                        My stack: <strong>Python, React, Next.js, FastAPI</strong> on the code side.
+                        <strong>AWS, Docker, Vercel</strong> for infrastructure.
+                        <strong>LangChain, Gemini, GPT4All</strong> for AI.
+                        I write code that's clean, fast, and built to last.
+                    </p>
+                    <div class="about-stats fade-up">
+                        <div class="stat">
+                            <span class="stat-num" data-count="20">0</span>
                             <span class="stat-label">Projects</span>
                         </div>
-                        <div class="stat-item glass-card">
-                            <span class="stat-number" data-count="15">0</span><span class="accent">+</span>
+                        <div class="stat">
+                            <span class="stat-num" data-count="15">0</span>
                             <span class="stat-label">Technologies</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="about-text-col">
-                    <p class="about-text reveal">
-                        I'm a full stack developer passionate about building
-                        <span class="highlight">AI-powered applications</span> and
-                        scalable web platforms. From real-time dashboards to intelligent
-                        text detection systems — I ship products that solve real problems.
-                    </p>
-                    <p class="about-text reveal">
-                        My stack spans <span class="highlight">Python, React, Next.js, and FastAPI</span>,
-                        with deep experience in cloud infrastructure (AWS), Docker, and
-                        modern DevOps. I love building end-to-end — from pixel-perfect
-                        frontends to robust APIs and ML pipelines.
-                    </p>
-                    <p class="about-text reveal">
-                        When I'm not shipping features, you'll find me exploring
-                        <span class="highlight">cloud security</span>, contributing to
-                        open source, or experimenting with the latest in AI and LLMs.
-                    </p>
-
-                    <div class="about-details glass-card reveal">
-                        <div class="detail-item">
-                            <span class="detail-label">Location</span>
-                            <span class="detail-value">India</span>
+                        <div class="stat">
+                            <span class="stat-num" data-count="4">0</span>
+                            <span class="stat-label">Live Products</span>
                         </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Focus</span>
-                            <span class="detail-value">Full Stack, AI/ML, Cloud</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Interests</span>
-                            <span class="detail-value">AI, Cloud Security, Open Source</span>
-                        </div>
-                    </div>
-
-                    <a href="#" class="btn-primary btn-glow reveal" style="--delay:0.2s">
-                        <span>Download Resume</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-index">02</span>
-                <h2 class="section-title reveal">
-                    <span class="section-title-inner">My <span class="gradient-text">Arsenal</span></span>
-                </h2>
-                <p class="section-subtitle reveal">Technologies & tools I work with</p>
-            </div>
-
-            <div class="skills-orbit reveal">
-                <div class="orbit-center">
-                    <span>&lt;/&gt;</span>
-                </div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                        </div>
-                        <h3>Languages</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card reveal" style="--delay:0.1s">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                        </div>
-                        <h3>Frameworks</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">TailwindCSS</span>
-                        <span class="skill-tag">Material UI</span>
-                        <span class="skill-tag">Streamlit</span>
-                        <span class="skill-tag">LangChain</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card reveal" style="--delay:0.2s">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h3>Tools & Platforms</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git / GitHub</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Vercel</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">SQLite</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">n8n</span>
-                        <span class="skill-tag">CloudFormation</span>
-                    </div>
-                </div>
-
-                <div class="skill-category glass-card reveal" style="--delay:0.3s">
-                    <div class="skill-category-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-                        </div>
-                        <h3>AI / ML & Security</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Google Gemini</span>
-                        <span class="skill-tag">GPT4All</span>
-                        <span class="skill-tag">RAG Pipelines</span>
-                        <span class="skill-tag">NLP / Text Detection</span>
-                        <span class="skill-tag">LLM Integration</span>
-                        <span class="skill-tag">Cloud Security</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section projects" id="projects">
+    <!-- ===== WORK — Horizontal Scroll ===== -->
+    <section class="section work" id="work">
         <div class="container">
-            <div class="section-header">
-                <span class="section-index">03</span>
-                <h2 class="section-title reveal">
-                    <span class="section-title-inner">Featured <span class="gradient-text">Work</span></span>
-                </h2>
-                <p class="section-subtitle reveal">Selected projects I'm proud of</p>
+            <div class="section-label"><span>02</span> Featured Work</div>
+        </div>
+        <div class="work-horizontal">
+            <div class="work-track" id="work-track">
+
+                <article class="project-panel">
+                    <div class="project-img">
+                        <div class="project-img-inner" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+                            <span class="project-num">01</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-cat">AI Platform</span>
+                        <h3 class="project-name" data-splitting>ClarityAI</h3>
+                        <p class="project-desc">World's most advanced AI text detection &amp; humanization platform. 17-signal ensemble pipeline detecting AI text from GPT-4, Claude, Gemini, Llama, Mistral.</p>
+                        <div class="project-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>MUI</span><span>Docker</span></div>
+                        <a href="https://github.com/gauthambinoy/ClarityAI" target="_blank" class="project-cta" data-magnetic>
+                            <span>View Project</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-panel">
+                    <div class="project-img">
+                        <div class="project-img-inner" style="background: linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e);">
+                            <span class="project-num">02</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-cat">AI / Full Stack</span>
+                        <h3 class="project-name" data-splitting>ResumeShield</h3>
+                        <p class="project-desc">Dual-axis resume scanner scoring on ATS keyword compatibility AND AI-generated text detection simultaneously. Deployed live on Vercel.</p>
+                        <div class="project-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>Docker</span></div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/gauthambinoy/resumeshield" target="_blank" class="project-cta" data-magnetic>
+                                <span>Code</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                            <a href="https://resumeshield.vercel.app" target="_blank" class="project-cta" data-magnetic>
+                                <span>Live Demo</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-panel">
+                    <div class="project-img">
+                        <div class="project-img-inner" style="background: linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9);">
+                            <span class="project-num">03</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-cat">Data Dashboard</span>
+                        <h3 class="project-name" data-splitting>Unified World Data</h3>
+                        <p class="project-desc">Production-grade real-time global dashboard. 200+ APIs, 40+ live counters, interactive world maps, 15 data tabs, AI-powered natural language queries.</p>
+                        <div class="project-stack"><span>Next.js 14</span><span>TypeScript</span><span>Tailwind</span><span>Docker</span></div>
+                        <a href="https://github.com/gauthambinoy/unified-world-data" target="_blank" class="project-cta" data-magnetic>
+                            <span>View Project</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-panel">
+                    <div class="project-img">
+                        <div class="project-img-inner" style="background: linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60);">
+                            <span class="project-num">04</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-cat">FinTech</span>
+                        <h3 class="project-name" data-splitting>CryptoStock Pro</h3>
+                        <p class="project-desc">Real-time Stock &amp; Crypto Portfolio Tracker. WebSocket streaming, interactive charts, portfolio management, trade finder, secure auth.</p>
+                        <div class="project-stack"><span>Python</span><span>React 18</span><span>WebSocket</span><span>REST API</span></div>
+                        <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" class="project-cta" data-magnetic>
+                            <span>View Project</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
             </div>
-
-            <div class="projects-list">
-                <!-- Project 1: ClarityAI -->
-                <article class="project-card reveal">
-                    <div class="project-card-inner">
-                        <div class="project-preview">
-                            <div class="project-preview-placeholder">
-                                <span class="project-number">01</span>
-                            </div>
-                            <div class="project-preview-overlay"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-meta">
-                                <span class="project-type">AI Platform</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">ClarityAI</h3>
-                            <p class="project-description">
-                                The world's most advanced AI text detection, plagiarism detection
-                                &amp; humanization platform. 17-signal ensemble pipeline detecting
-                                AI-generated text from GPT-4, Claude, Gemini, Llama, and Mistral.
-                            </p>
-                            <div class="project-tech">
-                                <span>Python 3.12</span>
-                                <span>FastAPI</span>
-                                <span>React 18</span>
-                                <span>MUI v6</span>
-                                <span>Docker</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/gauthambinoy/ClarityAI" target="_blank" class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: ResumeShield -->
-                <article class="project-card reveal" style="--delay:0.1s">
-                    <div class="project-card-inner reverse">
-                        <div class="project-preview">
-                            <div class="project-preview-placeholder p2">
-                                <span class="project-number">02</span>
-                            </div>
-                            <div class="project-preview-overlay"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-meta">
-                                <span class="project-type">AI / Full Stack</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">ResumeShield</h3>
-                            <p class="project-description">
-                                A dual-axis resume scanner that scores resumes on ATS keyword
-                                compatibility AND AI-generated text detection simultaneously.
-                                Deployed live on Vercel.
-                            </p>
-                            <div class="project-tech">
-                                <span>Python 3.12</span>
-                                <span>FastAPI</span>
-                                <span>React 18</span>
-                                <span>TypeScript</span>
-                                <span>Docker</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/gauthambinoy/resumeshield" target="_blank" class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                                    Code
-                                </a>
-                                <a href="https://resumeshield.vercel.app" target="_blank" class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                                    Live
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Unified World Data -->
-                <article class="project-card reveal" style="--delay:0.2s">
-                    <div class="project-card-inner">
-                        <div class="project-preview">
-                            <div class="project-preview-placeholder p3">
-                                <span class="project-number">03</span>
-                            </div>
-                            <div class="project-preview-overlay"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-meta">
-                                <span class="project-type">Data Dashboard</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">Unified World Data</h3>
-                            <p class="project-description">
-                                A production-grade real-time global data dashboard aggregating
-                                200+ public APIs into a single live dashboard with 40+ real-time
-                                counters, interactive world maps, 15 data tabs, and AI-powered
-                                natural language queries.
-                            </p>
-                            <div class="project-tech">
-                                <span>Next.js 14</span>
-                                <span>TypeScript</span>
-                                <span>Tailwind CSS</span>
-                                <span>Docker</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/gauthambinoy/unified-world-data" target="_blank" class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4: CryptoStock Pro -->
-                <article class="project-card reveal" style="--delay:0.3s">
-                    <div class="project-card-inner reverse">
-                        <div class="project-preview">
-                            <div class="project-preview-placeholder p4">
-                                <span class="project-number">04</span>
-                            </div>
-                            <div class="project-preview-overlay"></div>
-                        </div>
-                        <div class="project-info">
-                            <div class="project-meta">
-                                <span class="project-type">FinTech</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">CryptoStock Pro</h3>
-                            <p class="project-description">
-                                A real-time Stock &amp; Cryptocurrency Portfolio Tracker with
-                                WebSocket streaming, interactive charts, portfolio management,
-                                trade finder, and secure authentication.
-                            </p>
-                            <div class="project-tech">
-                                <span>Python 3.9</span>
-                                <span>React 18</span>
-                                <span>WebSocket</span>
-                                <span>REST API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" class="project-link">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                                    Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="projects-more reveal">
-                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="btn-outline btn-glow">
-                    <span>View All Projects</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </div>
+        <div class="container">
+            <div class="work-all fade-up">
+                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="link-arrow" data-magnetic>
+                    <span>All Projects on GitHub</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="section experience" id="experience">
+    <!-- ===== SKILLS ===== -->
+    <section class="section skills" id="skills">
         <div class="container">
-            <div class="section-header">
-                <span class="section-index">04</span>
-                <h2 class="section-title reveal">
-                    <span class="section-title-inner">Work <span class="gradient-text">Experience</span></span>
-                </h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-line"></div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot">
-                        <div class="timeline-dot-inner"></div>
-                    </div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">2025 — Present</div>
-                        <h3 class="timeline-title">Software Developer</h3>
-                        <p class="timeline-company">Company Name</p>
-                        <p class="timeline-desc">
-                            Led development of key features, optimized performance by 40%,
-                            and mentored junior developers on best practices and architecture.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>AWS</span>
-                        </div>
+            <div class="section-label"><span>03</span> Toolkit</div>
+            <div class="skills-layout">
+                <div class="skill-col fade-up">
+                    <h4 class="skill-heading">Languages</h4>
+                    <div class="skill-list">
+                        <span class="skill-pill" data-splitting>Python</span>
+                        <span class="skill-pill" data-splitting>JavaScript</span>
+                        <span class="skill-pill" data-splitting>TypeScript</span>
+                        <span class="skill-pill" data-splitting>HTML/CSS</span>
+                        <span class="skill-pill" data-splitting>SQL</span>
                     </div>
                 </div>
-
-                <div class="timeline-item reveal" style="--delay:0.1s">
-                    <div class="timeline-dot">
-                        <div class="timeline-dot-inner"></div>
-                    </div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">2024 — 2025</div>
-                        <h3 class="timeline-title">Full Stack Intern</h3>
-                        <p class="timeline-company">Startup Inc.</p>
-                        <p class="timeline-desc">
-                            Built and shipped production features for a SaaS platform serving
-                            10,000+ users. Worked across the entire stack from UI to database.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>Next.js</span>
-                            <span>Python</span>
-                            <span>PostgreSQL</span>
-                        </div>
+                <div class="skill-col fade-up">
+                    <h4 class="skill-heading">Frameworks</h4>
+                    <div class="skill-list">
+                        <span class="skill-pill" data-splitting>React</span>
+                        <span class="skill-pill" data-splitting>Next.js</span>
+                        <span class="skill-pill" data-splitting>FastAPI</span>
+                        <span class="skill-pill" data-splitting>Flask</span>
+                        <span class="skill-pill" data-splitting>Node.js</span>
+                        <span class="skill-pill" data-splitting>Tailwind</span>
+                        <span class="skill-pill" data-splitting>MUI</span>
+                        <span class="skill-pill" data-splitting>Streamlit</span>
+                        <span class="skill-pill" data-splitting>LangChain</span>
                     </div>
                 </div>
-
-                <div class="timeline-item reveal" style="--delay:0.2s">
-                    <div class="timeline-dot">
-                        <div class="timeline-dot-inner"></div>
+                <div class="skill-col fade-up">
+                    <h4 class="skill-heading">Infrastructure</h4>
+                    <div class="skill-list">
+                        <span class="skill-pill" data-splitting>Docker</span>
+                        <span class="skill-pill" data-splitting>AWS</span>
+                        <span class="skill-pill" data-splitting>Vercel</span>
+                        <span class="skill-pill" data-splitting>Firebase</span>
+                        <span class="skill-pill" data-splitting>MongoDB</span>
+                        <span class="skill-pill" data-splitting>PostgreSQL</span>
+                        <span class="skill-pill" data-splitting>Git</span>
+                        <span class="skill-pill" data-splitting>Linux</span>
+                        <span class="skill-pill" data-splitting>CloudFormation</span>
                     </div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date">2023 — 2024</div>
-                        <h3 class="timeline-title">Open Source Contributor</h3>
-                        <p class="timeline-company">Various Projects</p>
-                        <p class="timeline-desc">
-                            Contributed to multiple open source projects, focusing on developer
-                            tools and libraries. Gained deep understanding of collaborative development.
-                        </p>
-                        <div class="timeline-tags">
-                            <span>Git</span>
-                            <span>TypeScript</span>
-                            <span>Docker</span>
-                        </div>
+                </div>
+                <div class="skill-col fade-up">
+                    <h4 class="skill-heading">AI / ML</h4>
+                    <div class="skill-list">
+                        <span class="skill-pill" data-splitting>Google Gemini</span>
+                        <span class="skill-pill" data-splitting>GPT4All</span>
+                        <span class="skill-pill" data-splitting>RAG Pipelines</span>
+                        <span class="skill-pill" data-splitting>NLP</span>
+                        <span class="skill-pill" data-splitting>LLM Integration</span>
+                        <span class="skill-pill" data-splitting>Cloud Security</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT ===== -->
     <section class="section contact" id="contact">
         <div class="container">
+            <div class="section-label"><span>04</span> Contact</div>
             <div class="contact-layout">
-                <div class="contact-left">
-                    <div class="section-header">
-                        <span class="section-index">05</span>
-                        <h2 class="section-title reveal">
-                            <span class="section-title-inner">Let's <span class="gradient-text">Connect</span></span>
-                        </h2>
-                    </div>
-                    <p class="contact-text reveal">
-                        Have a project in mind, a question, or just want to say hi?
-                        My inbox is always open. Let's build something amazing together.
-                    </p>
-
-                    <div class="contact-links reveal">
-                        <a href="mailto:gauthambinoy@users.noreply.github.com" class="contact-link-item glass-card">
-                            <div class="contact-link-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            </div>
-                            <div>
-                                <span class="contact-link-label">Email</span>
-                                <span class="contact-link-value">gauthambinoy@email.com</span>
-                            </div>
-                        </a>
-                        <a href="https://github.com/gauthambinoy" target="_blank" class="contact-link-item glass-card">
-                            <div class="contact-link-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                            </div>
-                            <div>
-                                <span class="contact-link-label">GitHub</span>
-                                <span class="contact-link-value">github.com/gauthambinoy</span>
-                            </div>
-                        </a>
-                        <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="contact-link-item glass-card">
-                            <div class="contact-link-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                            </div>
-                            <div>
-                                <span class="contact-link-label">LinkedIn</span>
-                                <span class="contact-link-value">linkedin.com/in/gauthambinoy</span>
-                            </div>
-                        </a>
-                        <a href="https://twitter.com/gauthambinoy" target="_blank" class="contact-link-item glass-card">
-                            <div class="contact-link-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-                            </div>
-                            <div>
-                                <span class="contact-link-label">Twitter / X</span>
-                                <span class="contact-link-value">@gauthambinoy</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-right reveal">
-                    <form class="contact-form glass-card" id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder=" " required autocomplete="off">
-                            <label for="name">Your Name</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder=" " required autocomplete="off">
-                            <label for="email">Your Email</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="4" placeholder=" " required></textarea>
-                            <label for="message">Your Message</label>
-                            <div class="form-line"></div>
-                        </div>
-                        <button type="submit" class="btn-primary btn-glow form-btn">
-                            <span>Send Message</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        </button>
-                    </form>
+                <h2 class="contact-heading" data-splitting>Let's work together.</h2>
+                <p class="contact-sub fade-up">Got a project, a question, or just want to say hi?</p>
+                <div class="contact-links-row fade-up">
+                    <a href="https://github.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic>
+                        <span>GitHub</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="contact-pill" data-magnetic>
+                        <span>LinkedIn</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="https://twitter.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic>
+                        <span>Twitter / X</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a href="mailto:gauthambinoy@users.noreply.github.com" class="contact-pill" data-magnetic>
+                        <span>Email</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -660,19 +333,17 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <span class="footer-logo">G<span class="accent">.</span></span>
-                    <p>Designed & built with passion.</p>
-                </div>
-                <div class="footer-right">
-                    <p>&copy; 2026 Gautham Binoy. All rights reserved.</p>
-                </div>
-            </div>
+        <div class="container footer-inner">
+            <span>&copy; 2026 Gautham Binoy</span>
+            <span>Built with passion & purpose</span>
         </div>
     </footer>
 
+    <!-- Libraries -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
