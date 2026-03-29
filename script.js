@@ -283,7 +283,7 @@ document.querySelectorAll('.project-img').forEach(img => {
    VIDEO BG — Cycle aurora clips
    =================================================== */
 const bgVideo = document.getElementById('bg-video');
-const videos = ['assets/aurora1.mp4', 'assets/aurora3.mp4', 'assets/aurora2.mp4'];
+const videos = ['assets/aurora1.mp4', 'assets/aurora_dawn.mp4', 'assets/aurora3.mp4', 'assets/aurora_timelapse.mp4', 'assets/aurora2.mp4'];
 let vidIdx = 0;
 
 bgVideo.addEventListener('ended', () => {
