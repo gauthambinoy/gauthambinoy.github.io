@@ -46,15 +46,25 @@ function triggerHeroReveal() {
 }
 
 /* ===================================================
-   CURSOR
+   CURSOR — Mind-blowing edition
    =================================================== */
 const dot = document.getElementById('cursor-dot');
 const circle = document.getElementById('cursor-circle');
+const cursorLabel = document.getElementById('cursor-label');
+const spotlight = document.getElementById('cursor-spotlight');
 const trailCanvas = document.getElementById('cursor-trail');
 const trailCtx = trailCanvas.getContext('2d');
 
-let mx = 0, my = 0, cx = 0, cy = 0;
+let mx = 0, my = 0;       // actual mouse
+let dx = 0, dy = 0;       // dot (lerped)
+let cx = 0, cy = 0;       // circle (slower lerp)
+let lx = 0, ly = 0;       // label
+let prevMx = 0, prevMy = 0;
+let velocity = 0;
+
+// Trail history — 60 points for comet tail
 const trail = [];
+const TRAIL_LENGTH = 60;
 
 function resizeTrail() {
     trailCanvas.width = window.innerWidth;
@@ -66,41 +76,144 @@ window.addEventListener('resize', resizeTrail);
 document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
     my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top = my + 'px';
-    trail.push({ x: mx, y: my, life: 1 });
-    if (trail.length > 40) trail.shift();
+
+    // Spotlight follows mouse
+    spotlight.style.background = `radial-gradient(600px circle at ${mx}px ${my}px, rgba(200,255,0,0.03), transparent 60%)`;
+    if (document.documentElement.getAttribute('data-theme') === 'light') {
+        spotlight.style.background = `radial-gradient(600px circle at ${mx}px ${my}px, rgba(68,0,255,0.025), transparent 60%)`;
+    }
+});
+
+// Click burst particles
+document.addEventListener('click', (e) => {
+    for (let i = 0; i < 8; i++) {
+        const burst = document.createElement('div');
+        burst.className = 'click-burst';
+        burst.style.left = e.clientX + 'px';
+        burst.style.top = e.clientY + 'px';
+        // Random direction offset
+        const angle = (Math.PI * 2 / 8) * i;
+        const dist = 20 + Math.random() * 30;
+        burst.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
+        burst.style.setProperty('--by', Math.sin(angle) * dist + 'px');
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 600);
+    }
 });
 
 function animateCursor() {
-    cx += (mx - cx) * 0.1;
-    cy += (my - cy) * 0.1;
+    // Calculate velocity
+    const dvx = mx - prevMx;
+    const dvy = my - prevMy;
+    velocity = Math.sqrt(dvx * dvx + dvy * dvy);
+    prevMx = mx;
+    prevMy = my;
+
+    // Dot follows with fast lerp
+    dx += (mx - dx) * 0.2;
+    dy += (my - dy) * 0.2;
+
+    // Velocity-based stretch — skew the dot based on movement direction
+    const angle = Math.atan2(dvy, dvx) * (180 / Math.PI);
+    const stretch = Math.min(velocity * 0.5, 20);
+    dot.style.left = dx + 'px';
+    dot.style.top = dy + 'px';
+    dot.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scaleX(${1 + stretch * 0.02}) scaleY(${1 - stretch * 0.01})`;
+
+    // Circle follows slower
+    cx += (mx - cx) * 0.08;
+    cy += (my - cy) * 0.08;
     circle.style.left = cx + 'px';
     circle.style.top = cy + 'px';
 
-    // Trail
+    // Label follows even slower for nice lag
+    lx += (mx - lx) * 0.12;
+    ly += (my - ly) * 0.12;
+    cursorLabel.style.left = lx + 'px';
+    cursorLabel.style.top = (ly - 45) + 'px';
+
+    // Push to trail
+    trail.push({ x: dx, y: dy, vx: dvx, vy: dvy });
+    if (trail.length > TRAIL_LENGTH) trail.shift();
+
+    // Draw comet trail
     trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
     const theme = document.documentElement.getAttribute('data-theme');
-    const rgb = theme === 'light' ? '68,0,255' : '200,255,0';
 
-    trail.forEach((p) => {
-        p.life -= 0.025;
-        if (p.life <= 0) return;
-        trailCtx.beginPath();
-        trailCtx.arc(p.x, p.y, p.life * 6, 0, Math.PI * 2);
-        trailCtx.fillStyle = `rgba(${rgb},${p.life * 0.3})`;
-        trailCtx.fill();
-    });
-    while (trail.length && trail[0].life <= 0) trail.shift();
+    if (trail.length > 2) {
+        // Main gradient trail
+        for (let i = 1; i < trail.length; i++) {
+            const p = trail[i];
+            const prev = trail[i - 1];
+            const t = i / trail.length; // 0 to 1
+
+            // Color shifts along trail: accent -> accent2
+            let r, g, b;
+            if (theme === 'light') {
+                r = Math.round(68 + (0 - 68) * t);
+                g = Math.round(0 + (102 - 0) * t);
+                b = Math.round(255 + (255 - 255) * t);
+            } else {
+                r = Math.round(0 + (200 - 0) * t);
+                g = Math.round(240 + (255 - 240) * t);
+                b = Math.round(255 + (0 - 255) * t);
+            }
+
+            const alpha = t * 0.4;
+            const width = t * 5 + 0.5;
+
+            trailCtx.beginPath();
+            trailCtx.moveTo(prev.x, prev.y);
+            trailCtx.lineTo(p.x, p.y);
+            trailCtx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+            trailCtx.lineWidth = width;
+            trailCtx.lineCap = 'round';
+            trailCtx.stroke();
+        }
+
+        // Glow particles along trail
+        for (let i = 0; i < trail.length; i += 3) {
+            const p = trail[i];
+            const t = i / trail.length;
+            const rgb = theme === 'light' ? '68,0,255' : '200,255,0';
+            const size = t * 3;
+            const alpha = t * 0.25;
+
+            trailCtx.beginPath();
+            trailCtx.arc(p.x, p.y, size, 0, Math.PI * 2);
+            trailCtx.fillStyle = `rgba(${rgb},${alpha})`;
+            trailCtx.fill();
+
+            // Outer glow
+            trailCtx.beginPath();
+            trailCtx.arc(p.x, p.y, size * 3, 0, Math.PI * 2);
+            trailCtx.fillStyle = `rgba(${rgb},${alpha * 0.15})`;
+            trailCtx.fill();
+        }
+    }
 
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-// Cursor hover states
-document.querySelectorAll('a, button, .skill-pill, .project-panel, .contact-pill').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+// Activate spotlight
+spotlight.classList.add('active');
+
+// Hover states — with smart labels
+const hoverTargets = document.querySelectorAll('a, button, .skill-pill, .project-panel, .contact-pill, .project-img-inner');
+hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        document.body.classList.add('cursor-active');
+        const label = el.getAttribute('data-cursor') || el.closest('[data-cursor]')?.getAttribute('data-cursor');
+        if (label) {
+            cursorLabel.textContent = label;
+            cursorLabel.classList.add('visible');
+        }
+    });
+    el.addEventListener('mouseleave', () => {
+        document.body.classList.remove('cursor-active');
+        cursorLabel.classList.remove('visible');
+    });
 });
 
 /* ===================================================
