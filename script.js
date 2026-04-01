@@ -410,3 +410,49 @@ bgVideo.addEventListener('ended', () => {
     }, 500);
 });
 bgVideo.style.transition = 'opacity 0.8s ease';
+
+/* ===================================================
+   ANIMATED COUNTERS — Stat numbers count up
+   =================================================== */
+const animateCounters = () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+                const element = entry.target;
+                const target = parseInt(element.getAttribute('data-target'));
+                let current = 0;
+                const duration = 2;
+                const increment = target / (duration * 60); // 60 fps
+
+                const animateNumber = () => {
+                    current += increment;
+                    if (current < target) {
+                        element.textContent = Math.floor(current);
+                        requestAnimationFrame(animateNumber);
+                    } else {
+                        element.textContent = target;
+                        element.setAttribute('data-animated', 'true');
+                        observer.unobserve(element);
+                    }
+                };
+
+                animateNumber();
+            }
+        });
+    }, observerOptions);
+
+    statNumbers.forEach(number => observer.observe(number));
+};
+
+// Initialize counters when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateCounters);
+} else {
+    animateCounters();
+}
