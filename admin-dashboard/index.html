@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: #111;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover {
+            color: #c8ff00;
+        }
+
+        .tab-btn.active {
+            color: #c8ff00;
+            border-bottom-color: #c8ff00;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #f0f0f0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #c8ff00;
+            box-shadow: 0 0 0 2px rgba(200,255,0,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #c8ff00;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #d4ff19;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #f0f0f0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn-danger {
+            background: rgba(255,0,0,0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(255,0,0,0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(255,0,0,0.3);
+        }
+
+        .items-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .item-card {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .item-card:hover {
+            border-color: #c8ff00;
+            box-shadow: 0 0 20px rgba(200,255,0,0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .item-actions button {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .modal-close:hover {
+            color: #c8ff00;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: rgba(0,255,0,0.1);
+            color: #00ff00;
+            border: 1px solid rgba(0,255,0,0.3);
+        }
+
+        .alert-error {
+            background: rgba(255,0,0,0.1);
+            color: #ff6b6b;
+            border: 1px solid rgba(255,0,0,0.3);
+        }
+
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        .login-form {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            margin-bottom: 1.5rem;
+            color: #c8ff00;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                border-bottom: none;
+                border-left: 2px solid transparent;
+                padding-left: 1rem;
+            }
+
+            .tab-btn.active {
+                border-left-color: #c8ff00;
+                border-bottom: none;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-form">
+            <h2>Admin Dashboard</h2>
+            <div class="form-group">
+                <label>Backend URL</label>
+                <input type="text" id="backendUrl" placeholder="http://localhost:5000" value="http://localhost:5000">
+            </div>
+            <div class="form-group">
+                <label>Admin Token</label>
+                <input type="password" id="adminToken" placeholder="Enter admin token">
+            </div>
+            <button class="btn-primary" style="width: 100%; margin-top: 1rem;" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" style="display: none;">
+        <header>
+            <div class="container">
+                <h1>Portfolio Admin Dashboard</h1>
+                <p class="header-subtitle">Manage your portfolio content</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div id="alert" class="alert"></div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('profile')">Profile</button>
+                <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
+                <button class="tab-btn" onclick="switchTab('education')">Education</button>
+                <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
+                <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
+                <button class="tab-btn" onclick="switchTab('github')">GitHub Sync</button>
+                <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+                <button class="tab-btn" onclick="logout()" style="margin-left: auto; color: #ff6b6b;">Logout</button>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile" class="tab-content active">
+                <h2>Profile Information</h2>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="profileName" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="profileTitle" placeholder="Your title">
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <input type="text" id="profileRole" placeholder="Your role">
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="profileLocation" placeholder="Your location">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="profileEmail" placeholder="Your email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="profilePhone" placeholder="Your phone">
+                </div>
+                <div class="form-group">
+                    <label>Summary</label>
+                    <textarea id="profileSummary" placeholder="Your summary"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea id="profileBio" placeholder="Your bio"></textarea>
+                </div>
+                <button class="btn-primary" onclick="saveProfile()">Save Profile</button>
+            </div>
+
+            <!-- Experience Tab -->
+            <div id="experience" class="tab-content">
+                <h2>Work Experience</h2>
+                <button class="btn-primary" style="margin-bottom: 2rem;" onclick="openExperienceModal()">+ Add Experience</button>
+                <div id="experienceList" class="items-list"></div>
+            </div>
+
+            <!-- Education Tab -->
+            <div id="education" class="tab-content">
+                <h2>Education</h2>
+                <button class="btn-primary" style="margin-bottom: 2rem;" onclick="openEducationModal()">+ Add Education</button>
+                <div id="educationList" class="items-list"></div>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content">
+                <h2>Skills</h2>
+                <div class="form-group">
+                    <label>Languages (comma-separated)</label>
+                    <textarea id="skillsLanguages" placeholder="Python, JavaScript, TypeScript..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Frameworks (comma-separated)</label>
+                    <textarea id="skillsFrameworks" placeholder="React, Next.js, FastAPI..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Infrastructure (comma-separated)</label>
+                    <textarea id="skillsInfrastructure" placeholder="Docker, AWS, Vercel..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>AI/ML (comma-separated)</label>
+                    <textarea id="skillsAiMl" placeholder="RAG, GPT, NLP..."></textarea>
+                </div>
+                <button class="btn-primary" onclick="saveSkills()">Save Skills</button>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projects" class="tab-content">
+                <h2>Projects</h2>
+                <button class="btn-primary" style="margin-bottom: 2rem;" onclick="openProjectModal()">+ Add Project</button>
+                <div id="projectsList" class="items-list"></div>
+            </div>
+
+            <!-- GitHub Sync Tab -->
+            <div id="github" class="tab-content">
+                <h2>GitHub Auto-Sync</h2>
+                <p style="color: #888; margin-bottom: 2rem;">Automatically sync your GitHub repositories to your portfolio projects section.</p>
+
+                <div class="form-group">
+                    <label>GitHub Username</label>
+                    <input type="text" id="gitHubUsername" placeholder="e.g., gauthambinoy">
+                </div>
+
+                <div id="gitHubStats" style="display: none; margin: 2rem 0; padding: 1.5rem; background: #111; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                    <h4 style="margin-bottom: 1rem; color: #c8ff00;">GitHub Profile Stats</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                        <div>
+                            <p style="color: #888; font-size: 0.85rem;">Public Repos</p>
+                            <p style="font-size: 1.5rem; color: #c8ff00;" id="githubRepoCount">-</p>
+                        </div>
+                        <div>
+                            <p style="color: #888; font-size: 0.85rem;">Followers</p>
+                            <p style="font-size: 1.5rem; color: #c8ff00;" id="githubFollowers">-</p>
+                        </div>
+                        <div>
+                            <p style="color: #888; font-size: 0.85rem;">Following</p>
+                            <p style="font-size: 1.5rem; color: #c8ff00;" id="githubFollowing">-</p>
+                        </div>
+                        <div>
+                            <p style="color: #888; font-size: 0.85rem;">Repos to Sync</p>
+                            <p style="font-size: 1.5rem; color: #c8ff00;" id="githubReposToSync">-</p>
+                        </div>
+                    </div>
+                    <p style="color: #555; font-size: 0.85rem; margin-top: 1rem;" id="githubLastSync"></p>
+                </div>
+
+                <div id="gitHubReposList" style="display: none; margin: 2rem 0;">
+                    <h4 style="margin-bottom: 1rem;">Repositories to Import</h4>
+                    <div id="reposPreview" style="max-height: 400px; overflow-y: auto;"></div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="validateAndLoadGitHub()">Load GitHub Profile</button>
+                    <button class="btn-primary" id="syncBtn" style="display: none;" onclick="syncGitHubProjects()">Sync to Portfolio</button>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1rem; background: rgba(200,255,0,0.05); border-left: 2px solid #c8ff00; border-radius: 4px;">
+                    <p style="color: #c8ff00; font-size: 0.9rem; margin: 0;">
+                        <strong>💡 How it works:</strong> Enter your GitHub username, review the repositories that will be imported, then click "Sync to Portfolio" to automatically add them as projects. Manually added projects are preserved.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <h2>Settings</h2>
+                <div class="form-group">
+                    <label>Backend URL</label>
+                    <input type="text" id="settingsBackendUrl" readonly>
+                </div>
+                <div class="form-group">
+                    <label>API Status</label>
+                    <div style="padding: 1rem; background: #111; border-radius: 6px; color: #888;">
+                        <button class="btn-secondary" onclick="testConnection()">Test Connection</button>
+                        <p id="connectionStatus" style="margin-top: 1rem; font-size: 0.9rem;"></p>
+                    </div>
+                </div>
+                <button class="btn-danger" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="experienceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="experienceModalTitle">Add Experience</h2>
+                <button class="modal-close" onclick="closeExperienceModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>Company</label>
+                <input type="text" id="expCompany">
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <input type="text" id="expRole">
+            </div>
+            <div class="form-group">
+                <label>Duration</label>
+                <input type="text" id="expDuration" placeholder="e.g., March 2026 - Present">
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="expLocation">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="expDescription"></textarea>
+            </div>
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveExperience()">Save</button>
+                <button class="btn-secondary" onclick="closeExperienceModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="educationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="educationModalTitle">Add Education</h2>
+                <button class="modal-close" onclick="closeEducationModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>School</label>
+                <input type="text" id="eduSchool">
+            </div>
+            <div class="form-group">
+                <label>Degree</label>
+                <input type="text" id="eduDegree">
+            </div>
+            <div class="form-group">
+                <label>Field</label>
+                <input type="text" id="eduField">
+            </div>
+            <div class="form-group">
+                <label>Period</label>
+                <input type="text" id="eduPeriod" placeholder="e.g., September 2023 - May 2024">
+            </div>
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveEducation()">Save</button>
+                <button class="btn-secondary" onclick="closeEducationModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="projectModalTitle">Add Project</h2>
+                <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>Project Name</label>
+                <input type="text" id="projName">
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" id="projCategory">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="projDescription"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Tech Stack (comma-separated)</label>
+                <input type="text" id="projStack" placeholder="React, Node.js, etc.">
+            </div>
+            <div class="form-group">
+                <label>GitHub Link</label>
+                <input type="text" id="projGithub">
+            </div>
+            <div class="form-group">
+                <label>Demo Link</label>
+                <input type="text" id="projDemo">
+            </div>
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveProject()">Save</button>
+                <button class="btn-secondary" onclick="closeProjectModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
