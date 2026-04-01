@@ -554,6 +554,50 @@ body.cursor-active .cursor-circle { width: 90px; height: 90px; opacity: 0.15; }
 }
 [data-splitting].is-visible .char { opacity: 1; transform: translateY(0) rotateX(0); }
 
+/* ======= EXPERIENCE ======= */
+.experience-timeline { display: flex; flex-direction: column; gap: 3rem; }
+.experience-item {
+    padding: 2rem; border-left: 2px solid var(--border); padding-left: 2.5rem;
+    position: relative; transition: all 0.3s;
+}
+.experience-item::before {
+    content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px;
+    background: var(--accent); border-radius: 50%; border: 2px solid var(--bg);
+}
+.experience-item:hover { border-left-color: var(--accent); padding-left: 3rem; }
+.experience-date {
+    font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;
+}
+.experience-role {
+    font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem;
+}
+.experience-company {
+    color: var(--text2); font-size: 0.95rem; margin-bottom: 0.2rem;
+}
+.experience-location {
+    color: var(--text3); font-size: 0.85rem;
+}
+
+/* ======= EDUCATION ======= */
+.education-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.education-item {
+    padding: 2rem; background: var(--glass2); border: 1px solid var(--border);
+    border-radius: 12px; transition: all 0.3s;
+}
+.education-item:hover {
+    background: var(--glass); border-color: var(--accent);
+    transform: translateY(-4px);
+}
+.education-degree {
+    font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;
+}
+.education-school {
+    font-size: 0.95rem; color: var(--accent); margin-bottom: 0.3rem;
+}
+.education-period {
+    font-size: 0.85rem; color: var(--text3);
+}
+
 /* ======= RESPONSIVE ======= */
 @media (max-width: 1024px) {
     .about-layout { grid-template-columns: 1fr; }
