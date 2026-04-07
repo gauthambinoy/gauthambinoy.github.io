@@ -14,11 +14,15 @@
     <meta name="twitter:description" content="Full Stack Developer & AI Engineer based in Dublin. Building intelligent systems and beautiful interfaces.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css" integrity="sha384-6z/M4zCNHzM59q8BnJ1btvx5I7ArdKNNBgb/V4m7ZTUPI4e2SVF0o5IQAGCO414a" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
     <!-- Preloader -->
+    <noscript><style>.preloader{display:none!important}</style></noscript>
     <div class="preloader" id="preloader">
         <div class="preloader-counter" id="preloader-counter">0</div>
     </div>
@@ -78,16 +82,16 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
         <div class="hero-socials">
-            <a href="https://github.com/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="GitHub">
+            <a href="https://github.com/gauthambinoy" target="_blank" rel="noopener noreferrer" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="GitHub">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
             </a>
-            <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/gauthambinoy" target="_blank" rel="noopener noreferrer" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="LinkedIn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://x.com/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="X">
+            <a href="https://x.com/gauthambinoy" target="_blank" rel="noopener noreferrer" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="X">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="mailto:gautham.binoy005@gmail.com" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="Email">
+            <a href="#" data-mail="Z2F1dGhhbS5iaW5veTAwNUBnbWFpbC5jb20=" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="Email">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
             <div class="hero-social-line"></div>
@@ -101,7 +105,7 @@
             </h1>
             <div class="hero-role">
                 <div class="hero-role-line"></div>
-                <p data-splitting>Software Engineer</p>
+                <p class="hero-role-text"><span id="hero-typewriter"></span><span class="typewriter-cursor">|</span></p>
                 <div class="hero-role-line"></div>
             </div>
             <div class="hero-info">
@@ -125,6 +129,14 @@
             </div>
         </div>
     </section>
+
+    <!-- GitHub Activity Strip -->
+    <div class="github-strip" id="github-strip">
+        <div class="github-strip-inner">
+            <span class="github-strip-label">Latest commit</span>
+            <span id="github-event">Fetching activity...</span>
+        </div>
+    </div>
 
     <!-- ===== MARQUEE ===== -->
     <div class="marquee-wrap">
@@ -212,7 +224,7 @@
                             <li>Full-stack React frontend + FastAPI backend, Dockerised</li>
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>MUI</span><span>Docker</span><span>NLP</span></div>
-                        <a href="https://github.com/gauthambinoy/cipher-prose-truth" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/cipher-prose-truth" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -237,11 +249,11 @@
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>Docker</span></div>
                         <div class="project-card-links">
-                            <a href="https://github.com/gauthambinoy/axiom-resume-scanner" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <a href="https://github.com/gauthambinoy/axiom-resume-scanner" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                                 <span>Code</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                             </a>
-                            <a href="https://resumeshield.vercel.app" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <a href="https://resumeshield.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                                 <span>Live Demo</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                             </a>
@@ -266,7 +278,7 @@
                             <li>Interactive choropleth world maps with drill-down</li>
                         </ul>
                         <div class="project-card-stack"><span>Next.js 14</span><span>TypeScript</span><span>Tailwind</span><span>Recharts</span><span>SWR</span><span>Framer Motion</span></div>
-                        <a href="https://github.com/gauthambinoy/luma-earth-pulse" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/luma-earth-pulse" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -290,7 +302,7 @@
                             <li>JWT auth, trade finder &amp; watchlist management</li>
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>React 18</span><span>WebSocket</span><span>REST API</span><span>Chart.js</span></div>
-                        <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -314,7 +326,7 @@
                             <li>FastAPI backend + Streamlit interactive UI</li>
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>FAISS</span><span>Streamlit</span><span>Gemini</span><span>LangChain</span></div>
-                        <a href="https://github.com/gauthambinoy/retriva-hybrid-rag-engine" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/retriva-hybrid-rag-engine" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -338,7 +350,7 @@
                             <li>Search with filters, map view &amp; saved listings</li>
                         </ul>
                         <div class="project-card-stack"><span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span><span>Firebase</span></div>
-                        <a href="https://github.com/gauthambinoy/dwello-real-estate-platform" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/dwello-real-estate-platform" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -361,7 +373,7 @@
                             <li>Outputs for TikTok, Reels, Shorts &amp; LinkedIn</li>
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>AI/ML</span><span>FFmpeg</span><span>Video Processing</span></div>
-                        <a href="https://github.com/gauthambinoy/viralcut-ai" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/viralcut-ai" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -384,7 +396,7 @@
                             <li>Filterable dashboard with save &amp; track features</li>
                         </ul>
                         <div class="project-card-stack"><span>TypeScript</span><span>React</span><span>Node.js</span><span>Puppeteer</span></div>
-                        <a href="https://github.com/gauthambinoy/job-dashboard" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/job-dashboard" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -408,7 +420,7 @@
                             <li>Feature importance analysis &amp; data visualisation</li>
                         </ul>
                         <div class="project-card-stack"><span>Python</span><span>Jupyter</span><span>NLP</span><span>Scikit-learn</span><span>Pandas</span><span>Matplotlib</span></div>
-                        <a href="https://github.com/gauthambinoy/ba-insights-airline-analytics" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/ba-insights-airline-analytics" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -431,7 +443,7 @@
                             <li>Fully responsive with dark/light theme</li>
                         </ul>
                         <div class="project-card-stack"><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Framer Motion</span></div>
-                        <a href="https://github.com/gauthambinoy/devfolio-template" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                        <a href="https://github.com/gauthambinoy/devfolio-template" target="_blank" rel="noopener noreferrer" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
@@ -440,7 +452,7 @@
 
             </div>
             <div class="projects-footer fade-up">
-                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="link-arrow" data-magnetic>
+                <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" rel="noopener noreferrer" class="link-arrow" data-magnetic>
                     <span>All Repositories on GitHub</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </a>
@@ -452,6 +464,8 @@
     <section class="section experience" id="experience">
         <div class="container">
             <div class="section-label"><span>03</span> Experience</div>
+            <p class="experience-drag-hint">drag to explore →</p>
+            <div class="experience-scroll-outer" id="experience-scroll">
             <div class="experience-timeline">
                 <div class="experience-item fade-up">
                     <div class="experience-date">March 2026 — Present</div>
@@ -510,6 +524,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </section>
 
@@ -541,7 +556,9 @@
     <section class="section skills" id="skills">
         <div class="container">
             <div class="section-label"><span>05</span> Toolkit</div>
-            <div class="skills-layout">
+            <div class="skills-section-inner">
+                <div class="skills-radar-wrap fade-up"><div id="skills-radar"></div></div>
+                <div class="skills-layout">
                 <div class="skill-col fade-up">
                     <h4 class="skill-heading">Languages</h4>
                     <div class="skill-list">
@@ -594,6 +611,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </section>
 
@@ -605,19 +623,19 @@
                 <h2 class="contact-heading" data-splitting>Let's work together.</h2>
                 <p class="contact-sub fade-up">Got a project, a question, or just want to say hi?</p>
                 <div class="contact-links-row fade-up">
-                    <a href="https://github.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic data-cursor="Go">
+                    <a href="https://github.com/gauthambinoy" target="_blank" rel="noopener noreferrer" class="contact-pill" data-magnetic data-cursor="Go">
                         <span>GitHub</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
-                    <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="contact-pill" data-magnetic data-cursor="Go">
+                    <a href="https://linkedin.com/in/gauthambinoy" target="_blank" rel="noopener noreferrer" class="contact-pill" data-magnetic data-cursor="Go">
                         <span>LinkedIn</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
-                    <a href="https://x.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic data-cursor="Go">
+                    <a href="https://x.com/gauthambinoy" target="_blank" rel="noopener noreferrer" class="contact-pill" data-magnetic data-cursor="Go">
                         <span>X</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
-                    <a href="mailto:gautham.binoy005@gmail.com" class="contact-pill" data-magnetic data-cursor="Go">
+                    <a href="#" data-mail="Z2F1dGhhbS5iaW5veTAwNUBnbWFpbC5jb20=" class="contact-pill" data-magnetic data-cursor="Go">
                         <span>Email</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
@@ -631,16 +649,16 @@
         <div class="container footer-inner">
             <span>&copy; 2026 Gautham Binoy</span>
             <div class="footer-socials">
-                <a href="https://github.com/gauthambinoy" target="_blank" aria-label="GitHub">
+                <a href="https://github.com/gauthambinoy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
                 </a>
-                <a href="https://linkedin.com/in/gauthambinoy" target="_blank" aria-label="LinkedIn">
+                <a href="https://linkedin.com/in/gauthambinoy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="https://x.com/gauthambinoy" target="_blank" aria-label="X">
+                <a href="https://x.com/gauthambinoy" target="_blank" rel="noopener noreferrer" aria-label="X">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <a href="mailto:gautham.binoy005@gmail.com" aria-label="Email">
+                <a href="#" data-mail="Z2F1dGhhbS5iaW5veTAwNUBnbWFpbC5jb20=" aria-label="Email">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </a>
             </div>
@@ -649,10 +667,15 @@
     </footer>
 
     <!-- Libraries -->
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" integrity="sha384-tKsJDT6PlUI0pSBt9/sBKJluKgA19/a6mBrDsZaXotLB4ZYfMGM6xt6/WgGpYhTm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" integrity="sha384-pEQB1h4Zmn9xhS6jotzltHSIQq6N0Oh3BXkCNOH5LKI81R2NRbb9efarAJYw9gTY" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" integrity="sha384-TgZ1GoXcDnrw/czNfaiSZSFV1zgIRv8aQOevBA8ppS4SkNONmzYfjARpXsDfdnUE" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js" integrity="sha384-taxnKSnzdVS5gZB4jZcieFZlmBPQMFqhdEmCScZsrIFCxX8Zizq4fKJJH5kBwMXT" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" data-magnetic>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 </body>
 </html>
