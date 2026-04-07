@@ -32,7 +32,6 @@ const preloadInterval = setInterval(() => {
         counterEl.textContent = 100;
         setTimeout(() => {
             preloaderEl.classList.add('done');
-            // Animate hero text in after preloader
             setTimeout(triggerHeroReveal, 600);
         }, 400);
     }
@@ -55,16 +54,15 @@ const spotlight = document.getElementById('cursor-spotlight');
 const trailCanvas = document.getElementById('cursor-trail');
 const trailCtx = trailCanvas.getContext('2d');
 
-let mx = 0, my = 0;       // actual mouse
-let dx = 0, dy = 0;       // dot (lerped)
-let cx = 0, cy = 0;       // circle (slower lerp)
-let lx = 0, ly = 0;       // label
+let mx = 0, my = 0;
+let dx = 0, dy = 0;
+let cx = 0, cy = 0;
+let lx = 0, ly = 0;
 let prevMx = 0, prevMy = 0;
 let velocity = 0;
 
-// Trail history — 60 points for comet tail
 const trail = [];
-const TRAIL_LENGTH = 60;
+const TRAIL_LENGTH = 45;
 
 function resizeTrail() {
     trailCanvas.width = window.innerWidth;
@@ -77,21 +75,18 @@ document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
     my = e.clientY;
 
-    // Spotlight follows mouse
     spotlight.style.background = `radial-gradient(600px circle at ${mx}px ${my}px, rgba(200,255,0,0.03), transparent 60%)`;
     if (document.documentElement.getAttribute('data-theme') === 'light') {
         spotlight.style.background = `radial-gradient(600px circle at ${mx}px ${my}px, rgba(68,0,255,0.025), transparent 60%)`;
     }
 });
 
-// Click burst particles
 document.addEventListener('click', (e) => {
     for (let i = 0; i < 8; i++) {
         const burst = document.createElement('div');
         burst.className = 'click-burst';
         burst.style.left = e.clientX + 'px';
         burst.style.top = e.clientY + 'px';
-        // Random direction offset
         const angle = (Math.PI * 2 / 8) * i;
         const dist = 20 + Math.random() * 30;
         burst.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
@@ -102,52 +97,43 @@ document.addEventListener('click', (e) => {
 });
 
 function animateCursor() {
-    // Calculate velocity
     const dvx = mx - prevMx;
     const dvy = my - prevMy;
     velocity = Math.sqrt(dvx * dvx + dvy * dvy);
     prevMx = mx;
     prevMy = my;
 
-    // Dot follows with fast lerp
     dx += (mx - dx) * 0.2;
     dy += (my - dy) * 0.2;
 
-    // Velocity-based stretch — skew the dot based on movement direction
     const angle = Math.atan2(dvy, dvx) * (180 / Math.PI);
     const stretch = Math.min(velocity * 0.5, 20);
     dot.style.left = dx + 'px';
     dot.style.top = dy + 'px';
     dot.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scaleX(${1 + stretch * 0.02}) scaleY(${1 - stretch * 0.01})`;
 
-    // Circle follows slower
     cx += (mx - cx) * 0.08;
     cy += (my - cy) * 0.08;
     circle.style.left = cx + 'px';
     circle.style.top = cy + 'px';
 
-    // Label follows even slower for nice lag
     lx += (mx - lx) * 0.12;
     ly += (my - ly) * 0.12;
     cursorLabel.style.left = lx + 'px';
     cursorLabel.style.top = (ly - 45) + 'px';
 
-    // Push to trail
     trail.push({ x: dx, y: dy, vx: dvx, vy: dvy });
     if (trail.length > TRAIL_LENGTH) trail.shift();
 
-    // Draw comet trail
     trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
     const theme = document.documentElement.getAttribute('data-theme');
 
     if (trail.length > 2) {
-        // Main gradient trail
         for (let i = 1; i < trail.length; i++) {
             const p = trail[i];
             const prev = trail[i - 1];
-            const t = i / trail.length; // 0 to 1
+            const t = i / trail.length;
 
-            // Color shifts along trail: accent -> accent2
             let r, g, b;
             if (theme === 'light') {
                 r = Math.round(68 + (0 - 68) * t);
@@ -159,8 +145,8 @@ function animateCursor() {
                 b = Math.round(255 + (0 - 255) * t);
             }
 
-            const alpha = t * 0.4;
-            const width = t * 5 + 0.5;
+            const alpha = t * 0.3;
+            const width = t * 3.5 + 0.3;
 
             trailCtx.beginPath();
             trailCtx.moveTo(prev.x, prev.y);
@@ -171,20 +157,18 @@ function animateCursor() {
             trailCtx.stroke();
         }
 
-        // Glow particles along trail
         for (let i = 0; i < trail.length; i += 3) {
             const p = trail[i];
             const t = i / trail.length;
             const rgb = theme === 'light' ? '68,0,255' : '200,255,0';
-            const size = t * 3;
-            const alpha = t * 0.25;
+            const size = t * 2.5;
+            const alpha = t * 0.18;
 
             trailCtx.beginPath();
             trailCtx.arc(p.x, p.y, size, 0, Math.PI * 2);
             trailCtx.fillStyle = `rgba(${rgb},${alpha})`;
             trailCtx.fill();
 
-            // Outer glow
             trailCtx.beginPath();
             trailCtx.arc(p.x, p.y, size * 3, 0, Math.PI * 2);
             trailCtx.fillStyle = `rgba(${rgb},${alpha * 0.15})`;
@@ -196,11 +180,10 @@ function animateCursor() {
 }
 animateCursor();
 
-// Activate spotlight
 spotlight.classList.add('active');
 
-// Hover states — with smart labels
-const hoverTargets = document.querySelectorAll('a, button, .skill-pill, .project-panel, .contact-pill, .project-img-inner');
+// Hover states
+const hoverTargets = document.querySelectorAll('a, button, .skill-pill, .project-card, .contact-pill, .project-card-visual');
 hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => {
         document.body.classList.add('cursor-active');
@@ -253,7 +236,6 @@ menuLinks.forEach(link => {
     });
 });
 
-/* Smooth scroll for anchors */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
         e.preventDefault();
@@ -267,7 +249,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
    =================================================== */
 gsap.registerPlugin(ScrollTrigger);
 
-// Fade-up elements
 document.querySelectorAll('.fade-up').forEach(el => {
     gsap.to(el, {
         opacity: 1, y: 0, duration: 1, ease: 'power3.out',
@@ -275,7 +256,6 @@ document.querySelectorAll('.fade-up').forEach(el => {
     });
 });
 
-// Split text reveals on scroll
 document.querySelectorAll('.section [data-splitting]').forEach(el => {
     ScrollTrigger.create({
         trigger: el,
@@ -283,28 +263,6 @@ document.querySelectorAll('.section [data-splitting]').forEach(el => {
         onEnter: () => el.classList.add('is-visible'),
     });
 });
-
-/* ===================================================
-   HORIZONTAL SCROLL — Projects
-   =================================================== */
-const workTrack = document.getElementById('work-track');
-if (workTrack) {
-    const totalScroll = workTrack.scrollWidth - window.innerWidth;
-
-    gsap.to(workTrack, {
-        x: () => -totalScroll,
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.work-horizontal',
-            start: 'top top',
-            end: () => `+=${totalScroll}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-            anticipatePin: 1,
-        }
-    });
-}
 
 /* ===================================================
    MARQUEE — Scroll-velocity driven
@@ -323,7 +281,7 @@ gsap.ticker.add(() => {
 });
 
 /* ===================================================
-   STAT COUNTERS
+   STAT COUNTERS — About section
    =================================================== */
 document.querySelectorAll('.stat-num').forEach(el => {
     const target = parseInt(el.getAttribute('data-count'));
@@ -374,21 +332,21 @@ document.querySelectorAll('.skill-pill').forEach(pill => {
 });
 
 /* ===================================================
-   3D TILT — Project images
+   3D TILT — Project cards
    =================================================== */
-document.querySelectorAll('.project-img').forEach(img => {
-    img.addEventListener('mousemove', (e) => {
-        const rect = img.getBoundingClientRect();
+document.querySelectorAll('.project-card-visual').forEach(visual => {
+    visual.addEventListener('mousemove', (e) => {
+        const rect = visual.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        gsap.to(img, {
-            rotateY: x * 15, rotateX: -y * 15, scale: 1.02,
+        gsap.to(visual, {
+            rotateY: x * 12, rotateX: -y * 12, scale: 1.02,
             duration: 0.4, ease: 'power2.out',
             transformPerspective: 800,
         });
     });
-    img.addEventListener('mouseleave', () => {
-        gsap.to(img, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: 'power2.out' });
+    visual.addEventListener('mouseleave', () => {
+        gsap.to(visual, { rotateY: 0, rotateX: 0, scale: 1, duration: 0.6, ease: 'power2.out' });
     });
 });
 
@@ -410,49 +368,3 @@ bgVideo.addEventListener('ended', () => {
     }, 500);
 });
 bgVideo.style.transition = 'opacity 0.8s ease';
-
-/* ===================================================
-   ANIMATED COUNTERS — Stat numbers count up
-   =================================================== */
-const animateCounters = () => {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
-                const element = entry.target;
-                const target = parseInt(element.getAttribute('data-target'));
-                let current = 0;
-                const duration = 2;
-                const increment = target / (duration * 60); // 60 fps
-
-                const animateNumber = () => {
-                    current += increment;
-                    if (current < target) {
-                        element.textContent = Math.floor(current);
-                        requestAnimationFrame(animateNumber);
-                    } else {
-                        element.textContent = target;
-                        element.setAttribute('data-animated', 'true');
-                        observer.unobserve(element);
-                    }
-                };
-
-                animateNumber();
-            }
-        });
-    }, observerOptions);
-
-    statNumbers.forEach(number => observer.observe(number));
-};
-
-// Initialize counters when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', animateCounters);
-} else {
-    animateCounters();
-}

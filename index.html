@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gautham Binoy — Developer & Engineer</title>
-    <meta name="description" content="Gautham Binoy — Full Stack Developer, AI Engineer. Building intelligent systems and beautiful interfaces.">
+    <meta name="description" content="Gautham Binoy — Full Stack Developer & AI Engineer based in Dublin, Ireland. Building intelligent systems and beautiful interfaces.">
+    <meta property="og:title" content="Gautham Binoy — Developer & Engineer">
+    <meta property="og:description" content="Full Stack Developer & AI Engineer based in Dublin. Building intelligent systems, AI platforms, and scalable applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gauthambinoy.github.io">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gautham Binoy — Developer & Engineer">
+    <meta name="twitter:description" content="Full Stack Developer & AI Engineer based in Dublin. Building intelligent systems and beautiful interfaces.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,10 +56,9 @@
         <a href="#hero" class="nav-logo" data-magnetic>GB</a>
         <div class="nav-links">
             <a href="#about" class="nav-link">About</a>
-            <a href="#work" class="nav-link">Work</a>
+            <a href="#projects" class="nav-link">Projects</a>
             <a href="#experience" class="nav-link">Experience</a>
             <a href="#skills" class="nav-link">Skills</a>
-            <a href="#stats" class="nav-link">Impact</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="nav-burger" id="nav-burger" data-magnetic><span></span><span></span></button>
@@ -61,17 +68,15 @@
     <div class="menu-overlay" id="menu-overlay">
         <div class="menu-links">
             <a href="#about" class="menu-link" data-splitting>About</a>
-            <a href="#work" class="menu-link" data-splitting>Work</a>
+            <a href="#projects" class="menu-link" data-splitting>Projects</a>
             <a href="#experience" class="menu-link" data-splitting>Experience</a>
             <a href="#skills" class="menu-link" data-splitting>Skills</a>
-            <a href="#stats" class="menu-link" data-splitting>Impact</a>
             <a href="#contact" class="menu-link" data-splitting>Contact</a>
         </div>
     </div>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <!-- Social sidebar -->
         <div class="hero-socials">
             <a href="https://github.com/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="GitHub">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
@@ -79,8 +84,8 @@
             <a href="https://linkedin.com/in/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="LinkedIn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://twitter.com/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="Twitter">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            <a href="https://x.com/gauthambinoy" target="_blank" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="mailto:gautham.binoy005@gmail.com" class="hero-social-link" data-magnetic data-cursor="Visit" aria-label="Email">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -96,8 +101,20 @@
             </h1>
             <div class="hero-role">
                 <div class="hero-role-line"></div>
-                <p data-splitting>Full Stack Developer & AI Engineer</p>
+                <p data-splitting>Software Engineer</p>
                 <div class="hero-role-line"></div>
+            </div>
+            <div class="hero-info">
+                <span class="hero-location-tag">Dublin, Ireland</span>
+                <span class="hero-status"><span class="dot"></span> Open to opportunities</span>
+            </div>
+            <div class="hero-tags">
+                <span>JPMorganChase</span>
+                <span>MSc Computing</span>
+                <span>Python</span>
+                <span>React</span>
+                <span>AWS</span>
+                <span>AI / ML</span>
             </div>
         </div>
 
@@ -106,10 +123,6 @@
                 <div class="hero-scroll-line"></div>
                 <span>Scroll to explore</span>
             </div>
-            <div class="hero-location">
-                <span>Based in Dublin, Ireland</span>
-                <span class="hero-available"><span class="dot"></span> Available for opportunities</span>
-            </div>
         </div>
     </section>
 
@@ -117,14 +130,18 @@
     <div class="marquee-wrap">
         <div class="marquee-track" id="marquee-1">
             <div class="marquee-content">
-                <span>Full Stack Development</span><span class="sep">/</span>
+                <span>Software Engineering</span><span class="sep">/</span>
                 <span>AI & Machine Learning</span><span class="sep">/</span>
-                <span>Cloud Architecture</span><span class="sep">/</span>
-                <span>Open Source</span><span class="sep">/</span>
-                <span>Full Stack Development</span><span class="sep">/</span>
+                <span>Cloud & DevOps</span><span class="sep">/</span>
+                <span>Full Stack</span><span class="sep">/</span>
+                <span>Data Engineering</span><span class="sep">/</span>
+                <span>Automation</span><span class="sep">/</span>
+                <span>Software Engineering</span><span class="sep">/</span>
                 <span>AI & Machine Learning</span><span class="sep">/</span>
-                <span>Cloud Architecture</span><span class="sep">/</span>
-                <span>Open Source</span><span class="sep">/</span>
+                <span>Cloud & DevOps</span><span class="sep">/</span>
+                <span>Full Stack</span><span class="sep">/</span>
+                <span>Data Engineering</span><span class="sep">/</span>
+                <span>Automation</span><span class="sep">/</span>
             </div>
         </div>
     </div>
@@ -154,16 +171,16 @@
                     </p>
                     <div class="about-stats fade-up">
                         <div class="stat">
-                            <span class="stat-num" data-count="20">0</span>
-                            <span class="stat-label">Projects</span>
+                            <span class="stat-num" data-count="13">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Public Repos</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-num" data-count="15">0</span>
-                            <span class="stat-label">Technologies</span>
+                            <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+                            <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-num" data-count="4">0</span>
-                            <span class="stat-label">Live Products</span>
+                            <span class="stat-num" data-count="7">0</span>
+                            <span class="stat-label">Companies</span>
                         </div>
                     </div>
                 </div>
@@ -171,98 +188,260 @@
         </div>
     </section>
 
-    <!-- ===== WORK — Horizontal Scroll ===== -->
-    <section class="section work" id="work">
+    <!-- ===== PROJECTS ===== -->
+    <section class="section projects" id="projects">
         <div class="container">
-            <div class="section-label"><span>02</span> Featured Work</div>
-        </div>
-        <div class="work-horizontal">
-            <div class="work-track" id="work-track">
+            <div class="section-label"><span>02</span> Projects</div>
+            <p class="section-intro fade-up">A selection of things I've built — from AI platforms and data dashboards to full-stack apps and automation tools.</p>
+            <div class="projects-grid">
 
-                <article class="project-panel">
-                    <div class="project-img">
-                        <div class="project-img-inner" data-cursor="View" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
-                            <span class="project-num">01</span>
-                        </div>
+                <!-- 01 ClarityAI -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+                        <span class="project-card-num">01</span>
                     </div>
-                    <div class="project-details">
-                        <span class="project-cat">AI Platform</span>
-                        <h3 class="project-name" data-splitting>ClarityAI</h3>
-                        <p class="project-desc">World's most advanced AI text detection &amp; humanization platform. 17-signal ensemble pipeline detecting AI text from GPT-4, Claude, Gemini, Llama, Mistral.</p>
-                        <div class="project-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>MUI</span><span>Docker</span></div>
-                        <a href="https://github.com/gauthambinoy/ClarityAI" target="_blank" class="project-cta" data-magnetic data-cursor="Open">
+                    <div class="project-card-body">
+                        <span class="project-card-cat">AI Platform</span>
+                        <h3 class="project-card-title">ClarityAI</h3>
+                        <p class="project-card-desc">Advanced AI text detection &amp; humanization platform built with an ensemble pipeline of 17 independent signals for high-accuracy classification.</p>
+                        <ul class="project-card-features">
+                            <li>Detects text from GPT-4, Claude, Gemini, Llama &amp; Mistral</li>
+                            <li>140+ features across linguistic, statistical &amp; stylometric analysis</li>
+                            <li>Real-time humanization engine with tone preservation</li>
+                            <li>Full-stack React frontend + FastAPI backend, Dockerised</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>MUI</span><span>Docker</span><span>NLP</span></div>
+                        <a href="https://github.com/gauthambinoy/cipher-prose-truth" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
                     </div>
                 </article>
 
-                <article class="project-panel">
-                    <div class="project-img">
-                        <div class="project-img-inner" data-cursor="View" style="background: linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e);">
-                            <span class="project-num">02</span>
-                        </div>
+                <!-- 02 ResumeShield -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        <span class="project-card-num">02</span>
                     </div>
-                    <div class="project-details">
-                        <span class="project-cat">AI / Full Stack</span>
-                        <h3 class="project-name" data-splitting>ResumeShield</h3>
-                        <p class="project-desc">Dual-axis resume scanner scoring on ATS keyword compatibility AND AI-generated text detection simultaneously. Deployed live on Vercel.</p>
-                        <div class="project-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>Docker</span></div>
-                        <div class="project-links-row">
-                            <a href="https://github.com/gauthambinoy/resumeshield" target="_blank" class="project-cta" data-magnetic data-cursor="Open">
+                    <div class="project-card-body">
+                        <span class="project-card-cat">AI / Full Stack</span>
+                        <h3 class="project-card-title">ResumeShield</h3>
+                        <p class="project-card-desc">Dual-axis resume analysis tool that scores documents on ATS keyword compatibility and AI-generated content detection simultaneously.</p>
+                        <ul class="project-card-features">
+                            <li>ATS keyword matching against job description requirements</li>
+                            <li>AI-generated text detection with confidence scoring</li>
+                            <li>Side-by-side dual-axis report with actionable feedback</li>
+                            <li>Deployed live on Vercel with CI/CD pipeline</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>Docker</span></div>
+                        <div class="project-card-links">
+                            <a href="https://github.com/gauthambinoy/axiom-resume-scanner" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
                                 <span>Code</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                             </a>
-                            <a href="https://resumeshield.vercel.app" target="_blank" class="project-cta" data-magnetic data-cursor="Open">
+                            <a href="https://resumeshield.vercel.app" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
                                 <span>Live Demo</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-panel">
-                    <div class="project-img">
-                        <div class="project-img-inner" data-cursor="View" style="background: linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9);">
-                            <span class="project-num">03</span>
-                        </div>
+                <!-- 03 Luma Earth Pulse -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        <span class="project-card-num">03</span>
                     </div>
-                    <div class="project-details">
-                        <span class="project-cat">Data Dashboard</span>
-                        <h3 class="project-name" data-splitting>Unified World Data</h3>
-                        <p class="project-desc">Production-grade real-time global dashboard. 200+ APIs, 40+ live counters, interactive world maps, 15 data tabs, AI-powered natural language queries.</p>
-                        <div class="project-stack"><span>Next.js 14</span><span>TypeScript</span><span>Tailwind</span><span>Docker</span></div>
-                        <a href="https://github.com/gauthambinoy/unified-world-data" target="_blank" class="project-cta" data-magnetic data-cursor="Open">
+                    <div class="project-card-body">
+                        <span class="project-card-cat">Data Dashboard</span>
+                        <h3 class="project-card-title">Luma Earth Pulse</h3>
+                        <p class="project-card-desc">Production-grade real-time global data dashboard aggregating 200+ public APIs into a unified, interactive interface with 13 data categories.</p>
+                        <ul class="project-card-features">
+                            <li>Rotating 3D Earth visualisation with live data overlays</li>
+                            <li>ISS tracker, crypto sparklines &amp; population counters</li>
+                            <li>40+ live counters with SWR caching &amp; stale-while-revalidate</li>
+                            <li>Interactive choropleth world maps with drill-down</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Next.js 14</span><span>TypeScript</span><span>Tailwind</span><span>Recharts</span><span>SWR</span><span>Framer Motion</span></div>
+                        <a href="https://github.com/gauthambinoy/luma-earth-pulse" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
                     </div>
                 </article>
 
-                <article class="project-panel">
-                    <div class="project-img">
-                        <div class="project-img-inner" data-cursor="View" style="background: linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60);">
-                            <span class="project-num">04</span>
-                        </div>
+                <!-- 04 CryptoStock Pro -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        <span class="project-card-num">04</span>
                     </div>
-                    <div class="project-details">
-                        <span class="project-cat">FinTech</span>
-                        <h3 class="project-name" data-splitting>CryptoStock Pro</h3>
-                        <p class="project-desc">Real-time Stock &amp; Crypto Portfolio Tracker. WebSocket streaming, interactive charts, portfolio management, trade finder, secure auth.</p>
-                        <div class="project-stack"><span>Python</span><span>React 18</span><span>WebSocket</span><span>REST API</span></div>
-                        <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" class="project-cta" data-magnetic data-cursor="Open">
+                    <div class="project-card-body">
+                        <span class="project-card-cat">FinTech</span>
+                        <h3 class="project-card-title">CryptoStock Pro</h3>
+                        <p class="project-card-desc">Real-time stock &amp; cryptocurrency portfolio tracker with live WebSocket price feeds, interactive charting, and portfolio analytics.</p>
+                        <ul class="project-card-features">
+                            <li>WebSocket streaming for real-time price updates</li>
+                            <li>Interactive candlestick &amp; line charts with zoom/pan</li>
+                            <li>Portfolio P&amp;L tracking with allocation breakdown</li>
+                            <li>JWT auth, trade finder &amp; watchlist management</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>React 18</span><span>WebSocket</span><span>REST API</span><span>Chart.js</span></div>
+                        <a href="https://github.com/gauthambinoy/cryptostock-pro" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
                             <span>View Project</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 05 Retriva RAG Engine -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #2d1f0e, #8b5a2b, #d4760a);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 00-4 4c0 1.95 1.4 3.58 3.25 3.93"/><circle cx="12" cy="6" r="1.5"/><path d="M6.5 10c-2 1-3.5 3-3.5 5.5a3 3 0 003 3"/><path d="M17.5 10c2 1 3.5 3 3.5 5.5a3 3 0 01-3 3"/></svg>
+                        <span class="project-card-num">05</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">AI / ML</span>
+                        <h3 class="project-card-title">Retriva RAG Engine</h3>
+                        <p class="project-card-desc">Production-ready Retrieval-Augmented Generation system combining sparse and dense retrieval with cross-encoder reranking for precise answers.</p>
+                        <ul class="project-card-features">
+                            <li>Hybrid BM25 + FAISS vector retrieval pipeline</li>
+                            <li>Cross-encoder reranking for precision at top-k</li>
+                            <li>Google Gemini LLM for grounded answer generation</li>
+                            <li>FastAPI backend + Streamlit interactive UI</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>FastAPI</span><span>FAISS</span><span>Streamlit</span><span>Gemini</span><span>LangChain</span></div>
+                        <a href="https://github.com/gauthambinoy/retriva-hybrid-rag-engine" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 06 Dwello -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #1a0a1e, #3a1a5c, #8e44ad);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span class="project-card-num">06</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">Full Stack</span>
+                        <h3 class="project-card-title">Dwello</h3>
+                        <p class="project-card-desc">End-to-end MERN real estate platform with AI-generated property listings, image management, and a complete auth system.</p>
+                        <ul class="project-card-features">
+                            <li>AI-powered listing description generation</li>
+                            <li>JWT authentication with role-based access</li>
+                            <li>Firebase image upload, storage &amp; CDN delivery</li>
+                            <li>Search with filters, map view &amp; saved listings</li>
+                        </ul>
+                        <div class="project-card-stack"><span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span><span>Firebase</span></div>
+                        <a href="https://github.com/gauthambinoy/dwello-real-estate-platform" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 07 ViralCut AI -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #0e2d1f, #1f6b3a, #2ecc71);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                        <span class="project-card-num">07</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">AI / Automation</span>
+                        <h3 class="project-card-title">ViralCut AI</h3>
+                        <p class="project-card-desc">Automated short-form video generation pipeline — takes long-form content and produces platform-optimised clips for social media.</p>
+                        <ul class="project-card-features">
+                            <li>AI scene detection &amp; highlight extraction</li>
+                            <li>Auto-captioning, cropping &amp; aspect ratio adaptation</li>
+                            <li>Outputs for TikTok, Reels, Shorts &amp; LinkedIn</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>AI/ML</span><span>FFmpeg</span><span>Video Processing</span></div>
+                        <a href="https://github.com/gauthambinoy/viralcut-ai" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 08 Job Dashboard -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #1a1a2e, #2d2d69, #5b5bce);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                        <span class="project-card-num">08</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">Data Platform</span>
+                        <h3 class="project-card-title">Job Dashboard</h3>
+                        <p class="project-card-desc">Ireland-focused graduate job aggregator — scrapes, deduplicates, and presents roles from 10+ sources in a filterable dashboard.</p>
+                        <ul class="project-card-features">
+                            <li>Automated multi-source scraping pipeline</li>
+                            <li>Deduplication, tagging &amp; smart categorisation</li>
+                            <li>Filterable dashboard with save &amp; track features</li>
+                        </ul>
+                        <div class="project-card-stack"><span>TypeScript</span><span>React</span><span>Node.js</span><span>Puppeteer</span></div>
+                        <a href="https://github.com/gauthambinoy/job-dashboard" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 09 BA Insights -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #2d0e1f, #6b1f3a, #c0392b);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+                        <span class="project-card-num">09</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">Data Science</span>
+                        <h3 class="project-card-title">BA Insights</h3>
+                        <p class="project-card-desc">British Airways virtual experience — end-to-end data science project covering web scraping, NLP sentiment analysis, and predictive modelling.</p>
+                        <ul class="project-card-features">
+                            <li>Web-scraped 10K+ customer reviews for analysis</li>
+                            <li>NLP pipeline: tokenisation, lemmatisation &amp; sentiment scoring</li>
+                            <li>Random Forest model predicting customer buying behaviour</li>
+                            <li>Feature importance analysis &amp; data visualisation</li>
+                        </ul>
+                        <div class="project-card-stack"><span>Python</span><span>Jupyter</span><span>NLP</span><span>Scikit-learn</span><span>Pandas</span><span>Matplotlib</span></div>
+                        <a href="https://github.com/gauthambinoy/ba-insights-airline-analytics" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 10 Devfolio Template -->
+                <article class="project-card fade-up">
+                    <div class="project-card-visual" data-cursor="View" style="background: linear-gradient(135deg, #0e1f2d, #1f3a6b, #3498db);">
+                        <svg class="project-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+                        <span class="project-card-num">10</span>
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-cat">Open Source</span>
+                        <h3 class="project-card-title">Devfolio Template</h3>
+                        <p class="project-card-desc">Animated developer portfolio template with smooth page transitions, scroll-triggered animations, and a single-file personalisation config.</p>
+                        <ul class="project-card-features">
+                            <li>One JSON file to personalise entire site</li>
+                            <li>Framer Motion page transitions &amp; scroll animations</li>
+                            <li>Fully responsive with dark/light theme</li>
+                        </ul>
+                        <div class="project-card-stack"><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Framer Motion</span></div>
+                        <a href="https://github.com/gauthambinoy/devfolio-template" target="_blank" class="project-card-link" data-magnetic data-cursor="Open">
+                            <span>View Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
                     </div>
                 </article>
 
             </div>
-        </div>
-        <div class="container">
-            <div class="work-all fade-up">
+            <div class="projects-footer fade-up">
                 <a href="https://github.com/gauthambinoy?tab=repositories" target="_blank" class="link-arrow" data-magnetic>
-                    <span>All Projects on GitHub</span>
+                    <span>All Repositories on GitHub</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </a>
             </div>
@@ -275,59 +454,59 @@
             <div class="section-label"><span>03</span> Experience</div>
             <div class="experience-timeline">
                 <div class="experience-item fade-up">
-                    <div class="experience-date">March 2026 - Present</div>
+                    <div class="experience-date">March 2026 — Present</div>
                     <div class="experience-content">
                         <h4 class="experience-role">Full-stack Developer</h4>
                         <p class="experience-company">JPMorganChase</p>
-                        <p class="experience-location">Dublin, County Dublin, Ireland</p>
+                        <p class="experience-location">Dublin, Ireland</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">January 2026 - March 2026</div>
+                    <div class="experience-date">January 2026 — March 2026</div>
                     <div class="experience-content">
                         <h4 class="experience-role">Quality Assurance Specialist</h4>
                         <p class="experience-company">TP</p>
-                        <p class="experience-location">Dublin</p>
+                        <p class="experience-location">Dublin, Ireland</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">August 2024 - March 2026</div>
+                    <div class="experience-date">August 2024 — March 2026</div>
                     <div class="experience-content">
                         <h4 class="experience-role">Python Developer (AI)</h4>
                         <p class="experience-company">Outliner AI</p>
-                        <p class="experience-location">Dublin</p>
+                        <p class="experience-location">Dublin, Ireland</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">January 2025 - September 2025</div>
+                    <div class="experience-date">January 2025 — September 2025</div>
                     <div class="experience-content">
                         <h4 class="experience-role">n8n AI Specialist Intern</h4>
                         <p class="experience-company">Napblog</p>
-                        <p class="experience-location">County Dublin, Ireland</p>
+                        <p class="experience-location">Dublin, Ireland</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">December 2022 - May 2024</div>
+                    <div class="experience-date">December 2022 — May 2024</div>
                     <div class="experience-content">
                         <h4 class="experience-role">Software Engineer</h4>
                         <p class="experience-company">Cochin Enterprise</p>
-                        <p class="experience-location">India</p>
+                        <p class="experience-location">Kochi, India</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">August 2022 - September 2023</div>
+                    <div class="experience-date">August 2022 — September 2023</div>
                     <div class="experience-content">
                         <h4 class="experience-role">Full Stack Developer</h4>
                         <p class="experience-company">One Team Solutions Edtech Pvt Ltd</p>
-                        <p class="experience-location">Kochi, Kerala, India</p>
+                        <p class="experience-location">Kochi, India</p>
                     </div>
                 </div>
                 <div class="experience-item fade-up">
-                    <div class="experience-date">February 2021 - August 2022</div>
+                    <div class="experience-date">February 2021 — August 2022</div>
                     <div class="experience-content">
                         <h4 class="experience-role">AWS Cloud Administration</h4>
                         <p class="experience-company">Sappio Consultancy Services Pvt Ltd</p>
-                        <p class="experience-location">Kochi, Kerala, India</p>
+                        <p class="experience-location">Kochi, India</p>
                     </div>
                 </div>
             </div>
@@ -340,14 +519,14 @@
             <div class="section-label"><span>04</span> Education</div>
             <div class="education-list">
                 <div class="education-item fade-up">
-                    <div class="education-degree">MSC, Information Systems In Computing</div>
+                    <div class="education-degree">MSc, Information Systems in Computing</div>
                     <p class="education-school">Dublin Business School</p>
-                    <p class="education-period">September 2023 - May 2024</p>
+                    <p class="education-period">September 2023 — May 2024</p>
                 </div>
                 <div class="education-item fade-up">
-                    <div class="education-degree">Bachelor in Computer Science, Information Technology</div>
+                    <div class="education-degree">BSc Computer Science, Information Technology</div>
                     <p class="education-school">Sacred Heart College Thevara</p>
-                    <p class="education-period">April 2019 - April 2022</p>
+                    <p class="education-period">April 2019 — April 2022</p>
                 </div>
                 <div class="education-item fade-up">
                     <div class="education-degree">Python Django Developer, Computer Programming</div>
@@ -369,8 +548,9 @@
                         <span class="skill-pill" data-splitting>Python</span>
                         <span class="skill-pill" data-splitting>JavaScript</span>
                         <span class="skill-pill" data-splitting>TypeScript</span>
-                        <span class="skill-pill" data-splitting>HTML/CSS</span>
+                        <span class="skill-pill" data-splitting>HTML / CSS</span>
                         <span class="skill-pill" data-splitting>SQL</span>
+                        <span class="skill-pill" data-splitting>C#</span>
                     </div>
                 </div>
                 <div class="skill-col fade-up">
@@ -380,11 +560,11 @@
                         <span class="skill-pill" data-splitting>Next.js</span>
                         <span class="skill-pill" data-splitting>FastAPI</span>
                         <span class="skill-pill" data-splitting>Flask</span>
+                        <span class="skill-pill" data-splitting>Django</span>
                         <span class="skill-pill" data-splitting>Node.js</span>
-                        <span class="skill-pill" data-splitting>Tailwind</span>
-                        <span class="skill-pill" data-splitting>MUI</span>
-                        <span class="skill-pill" data-splitting>Streamlit</span>
+                        <span class="skill-pill" data-splitting>Tailwind CSS</span>
                         <span class="skill-pill" data-splitting>LangChain</span>
+                        <span class="skill-pill" data-splitting>Streamlit</span>
                     </div>
                 </div>
                 <div class="skill-col fade-up">
@@ -398,100 +578,21 @@
                         <span class="skill-pill" data-splitting>PostgreSQL</span>
                         <span class="skill-pill" data-splitting>Git</span>
                         <span class="skill-pill" data-splitting>Linux</span>
-                        <span class="skill-pill" data-splitting>CloudFormation</span>
+                        <span class="skill-pill" data-splitting>n8n</span>
                     </div>
                 </div>
                 <div class="skill-col fade-up">
                     <h4 class="skill-heading">AI / ML</h4>
                     <div class="skill-list">
+                        <span class="skill-pill" data-splitting>Claude API</span>
+                        <span class="skill-pill" data-splitting>GPT-4 / OpenAI</span>
                         <span class="skill-pill" data-splitting>Google Gemini</span>
-                        <span class="skill-pill" data-splitting>GPT4All</span>
                         <span class="skill-pill" data-splitting>RAG Pipelines</span>
                         <span class="skill-pill" data-splitting>NLP</span>
                         <span class="skill-pill" data-splitting>LLM Integration</span>
-                        <span class="skill-pill" data-splitting>Cloud Security</span>
+                        <span class="skill-pill" data-splitting>Prompt Engineering</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== STATS ===== -->
-    <section class="section stats" id="stats">
-        <div class="container">
-            <div class="section-label"><span>06</span> Impact</div>
-            <div class="stats-grid">
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="15">0</div>
-                    <span class="stat-suffix">+</span>
-                    <p class="stat-label">Projects Built</p>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="8">0</div>
-                    <span class="stat-suffix">+</span>
-                    <p class="stat-label">Happy Clients</p>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="1000">0</div>
-                    <span class="stat-suffix">+</span>
-                    <p class="stat-label">Code Commits</p>
-                </div>
-                <div class="stat-item fade-up">
-                    <div class="stat-number" data-target="250">0</div>
-                    <span class="stat-suffix">+</span>
-                    <p class="stat-label">GitHub Stars</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-label"><span>07</span> Social Proof</div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-quote">"Gautham is an amazing developer! He built our AI system in just 2 weeks. The code quality was exceptional."</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">GB</div>
-                        <div class="testimonial-meta">
-                            <strong>Sarah Johnson</strong>
-                            <p>CEO, TechStart AI</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-quote">"Working with Gautham was a pleasure. He's responsive, professional, and delivers exactly what you ask for. Highly recommended!"</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MK</div>
-                        <div class="testimonial-meta">
-                            <strong>Michael Kumar</strong>
-                            <p>Founder, DataViz Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-up">
-                    <div class="testimonial-quote">"Best developer we've worked with. Fast turnaround, great communication, and the solution was scalable from day one."</div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">EL</div>
-                        <div class="testimonial-meta">
-                            <strong>Emily López</strong>
-                            <p>Product Manager, FinanceHub</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="section cta-section" id="cta">
-        <div class="container cta-container">
-            <h2 class="cta-heading" data-splitting>Ready to Build Something Amazing?</h2>
-            <p class="cta-subheading fade-up">Let's collaborate and create something extraordinary</p>
-            <div class="cta-buttons fade-up">
-                <a href="mailto:gautham.binoy005@gmail.com" class="cta-button cta-primary" data-magnetic data-cursor="Send">Get in Touch</a>
-                <a href="#work" class="cta-button cta-secondary" data-magnetic data-cursor="View">View My Work</a>
             </div>
         </div>
     </section>
@@ -499,7 +600,7 @@
     <!-- ===== CONTACT ===== -->
     <section class="section contact" id="contact">
         <div class="container">
-            <div class="section-label"><span>09</span> Contact</div>
+            <div class="section-label"><span>06</span> Contact</div>
             <div class="contact-layout">
                 <h2 class="contact-heading" data-splitting>Let's work together.</h2>
                 <p class="contact-sub fade-up">Got a project, a question, or just want to say hi?</p>
@@ -512,8 +613,8 @@
                         <span>LinkedIn</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
-                    <a href="https://twitter.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic data-cursor="Go">
-                        <span>Twitter / X</span>
+                    <a href="https://x.com/gauthambinoy" target="_blank" class="contact-pill" data-magnetic data-cursor="Go">
+                        <span>X</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
                     <a href="mailto:gautham.binoy005@gmail.com" class="contact-pill" data-magnetic data-cursor="Go">
@@ -536,14 +637,14 @@
                 <a href="https://linkedin.com/in/gauthambinoy" target="_blank" aria-label="LinkedIn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="https://twitter.com/gauthambinoy" target="_blank" aria-label="Twitter">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                <a href="https://x.com/gauthambinoy" target="_blank" aria-label="X">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
                 <a href="mailto:gautham.binoy005@gmail.com" aria-label="Email">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </a>
             </div>
-            <span>Built with passion & purpose</span>
+            <span>Built with passion &amp; purpose</span>
         </div>
     </footer>
 
@@ -552,7 +653,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-    <script src="data-loader.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
