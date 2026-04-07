@@ -241,8 +241,18 @@ themeBtn.addEventListener('click', () => {
 });
 
 /* ===================================================
-   NAV
+   NAV — scroll hide/show + glassmorphism
    =================================================== */
+const navEl = document.getElementById('nav');
+let lastScrollY = 0;
+lenis.on('scroll', ({ scroll }) => {
+    if (!navEl) return;
+    navEl.classList.toggle('scrolled', scroll > 60);
+    if (scroll > lastScrollY && scroll > 200) navEl.classList.add('hidden');
+    else navEl.classList.remove('hidden');
+    lastScrollY = scroll;
+});
+
 const burger = document.getElementById('nav-burger');
 const menuOverlay = document.getElementById('menu-overlay');
 const menuLinks = document.querySelectorAll('.menu-link');
