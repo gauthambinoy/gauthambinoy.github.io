@@ -4,6 +4,12 @@
 const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* On touch devices, set video to preload metadata only to save bandwidth */
+if (isTouchDevice) {
+    const bgVideo = document.getElementById('bg-video');
+    if (bgVideo) bgVideo.setAttribute('preload', 'metadata');
+}
+
 /* ===================================================
    SPLITTING.JS — Initialize text splitting
    =================================================== */
@@ -338,9 +344,9 @@ document.querySelectorAll('.stat-num').forEach(el => {
 });
 
 /* ===================================================
-   MAGNETIC ELEMENTS
+   MAGNETIC ELEMENTS (desktop only)
    =================================================== */
-document.querySelectorAll('[data-magnetic]').forEach(el => {
+if (!isTouchDevice) document.querySelectorAll('[data-magnetic]').forEach(el => {
     el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
@@ -373,9 +379,9 @@ document.querySelectorAll('.skill-pill').forEach(pill => {
 });
 
 /* ===================================================
-   3D TILT — Project cards
+   3D TILT — Project cards (desktop only)
    =================================================== */
-document.querySelectorAll('.project-card-visual').forEach(visual => {
+if (!isTouchDevice) document.querySelectorAll('.project-card-visual').forEach(visual => {
     visual.addEventListener('mousemove', (e) => {
         const rect = visual.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -394,26 +400,28 @@ document.querySelectorAll('.project-card-visual').forEach(visual => {
 /* ===================================================
    VIDEO BG — Cycle aurora clips
    =================================================== */
-const bgVideo = document.getElementById('bg-video');
-if (bgVideo) {
-    const videos = ['assets/aurora1.mp4', 'assets/aurora_dawn.mp4', 'assets/aurora3.mp4', 'assets/aurora_timelapse.mp4', 'assets/aurora2.mp4'];
-    let vidIdx = 0;
-
+const bgVideo2 = document.getElementById('bg-video');
+if (bgVideo2) {
     if (prefersReducedMotion) {
-        bgVideo.pause();
+        bgVideo2.pause();
+    } else if (isTouchDevice) {
+        /* On mobile: just loop the first clip, don't cycle through all 5 to save bandwidth */
+        bgVideo2.loop = true;
     } else {
-        bgVideo.addEventListener('ended', () => {
+        const videos = ['assets/aurora1.mp4', 'assets/aurora_dawn.mp4', 'assets/aurora3.mp4', 'assets/aurora_timelapse.mp4', 'assets/aurora2.mp4'];
+        let vidIdx = 0;
+        bgVideo2.addEventListener('ended', () => {
             vidIdx = (vidIdx + 1) % videos.length;
-            bgVideo.style.opacity = '0';
+            bgVideo2.style.opacity = '0';
             setTimeout(() => {
-                bgVideo.src = videos[vidIdx];
-                bgVideo.load();
-                bgVideo.play();
-                bgVideo.style.opacity = '1';
+                bgVideo2.src = videos[vidIdx];
+                bgVideo2.load();
+                bgVideo2.play();
+                bgVideo2.style.opacity = '1';
             }, 500);
         });
     }
-    bgVideo.style.transition = 'opacity 0.8s ease';
+    bgVideo2.style.transition = 'opacity 0.8s ease';
 }
 
 /* ===================================================
@@ -501,13 +509,25 @@ if (expScroll) {
         isDragging = false;
         expScroll.classList.remove('dragging');
     });
+
+    /* Touch support for mobile drag scroll */
+    let touchStartX, touchScrollLeft;
+    expScroll.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].pageX - expScroll.offsetLeft;
+        touchScrollLeft = expScroll.scrollLeft;
+    }, { passive: true });
+    expScroll.addEventListener('touchmove', e => {
+        const x = e.touches[0].pageX - expScroll.offsetLeft;
+        expScroll.scrollLeft = touchScrollLeft - (x - touchStartX);
+    }, { passive: true });
 }
 
 /* ===================================================
-   GENERATIVE CARD ART (single debounced resize)
+   GENERATIVE CARD ART (single debounced resize, desktop only)
    =================================================== */
 const cardDrawFns = [];
 (function initCardArt() {
+    if (isTouchDevice) return;
     document.querySelectorAll('.project-card-visual').forEach((visual, idx) => {
         const canvas = document.createElement('canvas');
         canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:overlay;';
