@@ -1,8 +1,43 @@
 {
   "projects": [
     {
-      "id": 1194442274,
+      "id": 1194833229,
       "num": "01",
+      "name": "gauthambinoy.github.io",
+      "category": "HTML",
+      "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
+      "stack": [
+        "HTML",
+        "Css",
+        "Github Pages",
+        "Gsap"
+      ],
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
+        "demo": "https://gauthambinoy.github.io"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "HTML",
+        "topics": [
+          "css",
+          "github-pages",
+          "gsap",
+          "html",
+          "javascript",
+          "personal-website",
+          "portfolio"
+        ],
+        "lastUpdated": "2026-04-09T01:21:10Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-04-10T00:17:10.354452+00:00"
+    },
+    {
+      "id": 1194442274,
+      "num": "02",
       "name": "luma-earth-pulse",
       "category": "TypeScript",
       "description": "Real-time global data dashboard \u2014 200+ APIs, 13 tabs, rotating Earth, ISS tracker, crypto sparklines, world maps. Next.js 14 + TypeScript + TailwindCSS + Recharts + SWR + Framer Motion.",
@@ -13,7 +48,7 @@
         "Dashboard",
         "Next.js"
       ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
       "links": {
         "github": "https://github.com/gauthambinoy/luma-earth-pulse",
         "demo": "https://unified-world-data.vercel.app"
@@ -47,11 +82,11 @@
         "lastUpdated": "2026-04-08T19:11:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135027+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354482+00:00"
     },
     {
       "id": 1194730821,
-      "num": "02",
+      "num": "03",
       "name": "cipher-prose-truth",
       "category": "Python",
       "description": "The Worlds Most Advanced AI Text Detection, Plagiarism Detection & Humanization Platform - 17 detection signals, 140+ features, 100% free",
@@ -61,7 +96,7 @@
         "Docker",
         "Fastapi"
       ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
       "links": {
         "github": "https://github.com/gauthambinoy/cipher-prose-truth",
         "demo": "https://clarityai-pied.vercel.app"
@@ -83,11 +118,11 @@
         "lastUpdated": "2026-04-08T19:11:13Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135049+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354491+00:00"
     },
     {
       "id": 1146611283,
-      "num": "03",
+      "num": "04",
       "name": "cryptostock-pro",
       "category": "JavaScript",
       "description": "Real-time Stock & Crypto Portfolio Tracker with Analytics",
@@ -97,7 +132,7 @@
         "Crypto",
         "Fintech"
       ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
       "links": {
         "github": "https://github.com/gauthambinoy/cryptostock-pro",
         "demo": "https://cryptostock-pro.vercel.app"
@@ -118,11 +153,11 @@
         "lastUpdated": "2026-04-08T19:11:15Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135057+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354497+00:00"
     },
     {
       "id": 1194790216,
-      "num": "04",
+      "num": "05",
       "name": "axiom-resume-scanner",
       "category": "Python",
       "description": "Dual-axis resume scanner: ATS compatibility + AI detection scoring",
@@ -132,7 +167,7 @@
         "Ats",
         "Docker"
       ],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
       "links": {
         "github": "https://github.com/gauthambinoy/axiom-resume-scanner",
         "demo": "https://resumeshield.vercel.app"
@@ -154,42 +189,7 @@
         "lastUpdated": "2026-04-08T19:10:12Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135064+00:00"
-    },
-    {
-      "id": 1194833229,
-      "num": "05",
-      "name": "gauthambinoy.github.io",
-      "category": "HTML",
-      "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
-      "stack": [
-        "HTML",
-        "Css",
-        "Github Pages",
-        "Gsap"
-      ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
-        "demo": "https://gauthambinoy.github.io"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "HTML",
-        "topics": [
-          "css",
-          "github-pages",
-          "gsap",
-          "html",
-          "javascript",
-          "personal-website",
-          "portfolio"
-        ],
-        "lastUpdated": "2026-04-08T19:09:31Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135072+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354504+00:00"
     },
     {
       "id": 1204306225,
@@ -211,7 +211,7 @@
         "lastUpdated": "2026-04-08T19:09:21Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135078+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354509+00:00"
     },
     {
       "id": 998471236,
@@ -243,7 +243,7 @@
         "lastUpdated": "2026-04-08T14:33:49Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135084+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354515+00:00"
     },
     {
       "id": 970781146,
@@ -275,7 +275,7 @@
         "lastUpdated": "2026-04-08T14:33:50Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135093+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354524+00:00"
     },
     {
       "id": 971256724,
@@ -309,7 +309,7 @@
         "lastUpdated": "2026-04-04T17:49:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135100+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354532+00:00"
     },
     {
       "id": 947289044,
@@ -344,7 +344,7 @@
         "lastUpdated": "2026-04-04T17:36:00Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135109+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354542+00:00"
     },
     {
       "id": 1200798090,
@@ -379,7 +379,7 @@
         "lastUpdated": "2026-04-08T14:33:54Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135117+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354551+00:00"
     },
     {
       "id": 937804604,
@@ -414,7 +414,7 @@
         "lastUpdated": "2026-04-04T17:17:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135124+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354558+00:00"
     },
     {
       "id": 776847903,
@@ -449,7 +449,7 @@
         "lastUpdated": "2026-04-04T17:17:31Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135130+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354564+00:00"
     },
     {
       "id": 1094126426,
@@ -486,10 +486,10 @@
         "lastUpdated": "2026-04-04T17:20:07Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-09T01:21:07.135137+00:00"
+      "syncedAt": "2026-04-10T00:17:10.354572+00:00"
     }
   ],
-  "lastGitHubSync": "2026-04-09T01:21:07.135165+00:00",
+  "lastGitHubSync": "2026-04-10T00:17:10.354910+00:00",
   "gitHubUsername": "gauthambinoy",
   "totalRepos": 14
 }
