@@ -1018,15 +1018,30 @@ body.cursor-active .cursor-circle {
     .nav-links { display: none; }
     .nav-status { display: none; }
     .nav-burger { display: flex; }
+    .hero { padding: 1.5rem; }
+    .hero-greeting { letter-spacing: 3px; margin-bottom: 1.2rem; }
+    .hero-greeting::before, .hero-greeting::after { width: 20px; }
+    .hero-name { margin-bottom: 1.5rem; }
+    .hero-role { gap: 1rem; }
+    .hero-role-line { width: 35px; }
     .hero-footer { flex-direction: column; align-items: center; gap: 2rem; }
-    .hero-info { flex-direction: column; gap: 0.8rem; }
-    .hero-tags { max-width: 90vw; }
-    .hero-socials-row { gap: 0.6rem; }
+    .hero-info { flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+    .hero-tags { max-width: 90vw; margin-top: 1.2rem; }
+    .hero-socials-row { gap: 0.6rem; margin-top: 1.5rem; }
     .hero-social-icon { width: 42px; height: 42px; }
+    .section { padding: clamp(4rem, 10vh, 8rem) 0; }
+    .section-label { margin-bottom: 2.5rem; }
     .about-stats { gap: 2rem; }
+    .education-list { grid-template-columns: 1fr; }
+    .project-card-body { padding: 1.2rem 1.4rem 1.5rem; }
+    .project-card-visual { min-height: 160px; }
     .skills-layout { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
+    .contact-links-row { gap: 0.7rem; }
+    .contact-pill { padding: 0.65rem 1.3rem; font-size: 0.85rem; }
+    .back-to-top { right: 1.5rem; bottom: 1.5rem; width: 42px; height: 42px; }
     .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .experience-scroll-outer .experience-item { min-width: 230px; max-width: 230px; }
 }
 
 /* Touch devices — disable custom cursor & heavy effects regardless of screen size */
