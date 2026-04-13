@@ -5,21 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gautham Binoy — Developer & Engineer</title>
     <meta name="description" content="Gautham Binoy — Full Stack Developer & AI Engineer based in Dublin, Ireland. Building intelligent systems and beautiful interfaces.">
+    <link rel="canonical" href="https://gauthambinoy.github.io/">
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Gautham Binoy — Developer & Engineer">
     <meta property="og:description" content="Full Stack Developer & AI Engineer based in Dublin. Building intelligent systems, AI platforms, and scalable applications.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gauthambinoy.github.io">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://gauthambinoy.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gautham Binoy — Full Stack Developer & AI Engineer">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Gautham Binoy">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gautham Binoy — Developer & Engineer">
     <meta name="twitter:description" content="Full Stack Developer & AI Engineer based in Dublin. Building intelligent systems and beautiful interfaces.">
+    <meta name="twitter:image" content="https://gauthambinoy.github.io/og-image.png">
+    <meta name="twitter:image:alt" content="Gautham Binoy — Full Stack Developer & AI Engineer">
+
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- PWA / Icons -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8f7f5" media="(prefers-color-scheme: light)">
+
+    <!-- Performance: Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.github.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css" integrity="sha384-6z/M4zCNHzM59q8BnJ1btvx5I7ArdKNNBgb/V4m7ZTUPI4e2SVF0o5IQAGCO414a" crossorigin="anonymous">
+
+    <!-- Fonts (after preconnect) -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to content (Accessibility) -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+
+    <!-- Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gautham Binoy",
+        "url": "https://gauthambinoy.github.io",
+        "jobTitle": "Full Stack Developer & AI Engineer",
+        "worksFor": { "@type": "Organization", "name": "Enterprise Fintech" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Dublin", "addressCountry": "IE" },
+        "sameAs": [
+            "https://github.com/gauthambinoy",
+            "https://linkedin.com/in/gauthambinoy",
+            "https://x.com/gauthambinoy",
+            "https://leetcode.com/u/gauthambinoy"
+        ]
+    }
+    </script>
+
     <!-- Progress Bar -->
-    <div class="progress-bar" id="progress-bar"></div>
+    <div class="progress-bar" id="progress-bar" role="presentation" aria-hidden="true"></div>
 
     <!-- Preloader -->
     <noscript><style>.preloader{display:none!important}</style></noscript>
@@ -28,18 +84,18 @@
     </div>
 
     <!-- Grain overlay -->
-    <div class="grain"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <!-- Cursor -->
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-circle" id="cursor-circle"></div>
-    <div class="cursor-label" id="cursor-label"></div>
-    <div class="cursor-spotlight" id="cursor-spotlight"></div>
-    <canvas class="cursor-trail-canvas" id="cursor-trail"></canvas>
+    <!-- Cursor (decorative) -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-circle" id="cursor-circle" aria-hidden="true"></div>
+    <div class="cursor-label" id="cursor-label" aria-hidden="true"></div>
+    <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
+    <canvas class="cursor-trail-canvas" id="cursor-trail" aria-hidden="true"></canvas>
 
     <!-- Global Video BG -->
-    <div class="video-bg">
-        <video autoplay muted loop playsinline id="bg-video">
+    <div class="video-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline id="bg-video" aria-hidden="true">
             <source src="assets/aurora1.mp4" type="video/mp4">
         </video>
         <div class="video-gradient-mesh"></div>
@@ -56,26 +112,26 @@
     </button>
 
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="#hero" class="nav-logo" data-magnetic>
+    <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#hero" class="nav-logo" data-magnetic aria-label="Gautham Binoy — Home">
             <span class="nav-logo-text">GB</span>
-            <span class="nav-logo-glow"></span>
+            <span class="nav-logo-glow" aria-hidden="true"></span>
         </a>
         <div class="nav-links">
-            <a href="#about" class="nav-link"><span class="nav-link-num">01</span>About</a>
-            <a href="#projects" class="nav-link"><span class="nav-link-num">02</span>Projects</a>
-            <a href="#experience" class="nav-link"><span class="nav-link-num">03</span>Experience</a>
-            <a href="#skills" class="nav-link"><span class="nav-link-num">04</span>Skills</a>
-            <a href="#contact" class="nav-link"><span class="nav-link-num">05</span>Contact</a>
+            <a href="#about" class="nav-link"><span class="nav-link-num" aria-hidden="true">01</span>About</a>
+            <a href="#projects" class="nav-link"><span class="nav-link-num" aria-hidden="true">02</span>Projects</a>
+            <a href="#experience" class="nav-link"><span class="nav-link-num" aria-hidden="true">03</span>Experience</a>
+            <a href="#skills" class="nav-link"><span class="nav-link-num" aria-hidden="true">04</span>Skills</a>
+            <a href="#contact" class="nav-link"><span class="nav-link-num" aria-hidden="true">05</span>Contact</a>
         </div>
         <div class="nav-right">
-            <span class="nav-status"><span class="nav-status-dot"></span>Available</span>
-            <button class="nav-burger" id="nav-burger" data-magnetic><span></span><span></span></button>
+            <span class="nav-status" aria-hidden="true"><span class="nav-status-dot"></span>Available</span>
+            <button class="nav-burger" id="nav-burger" data-magnetic aria-label="Open menu" aria-expanded="false" aria-controls="menu-overlay"><span></span><span></span></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-label="Navigation menu" aria-hidden="true">
         <div class="menu-links">
             <a href="#about" class="menu-link" data-splitting>About</a>
             <a href="#projects" class="menu-link" data-splitting>Projects</a>
@@ -86,17 +142,17 @@
     </div>
 
     <!-- ===== HERO ===== -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" aria-label="Introduction">
         <div class="hero-content">
             <p class="hero-greeting" data-splitting>Hello, I'm</p>
             <h1 class="hero-name">
                 <span class="hero-name-line" data-splitting>Gautham</span>
                 <span class="hero-name-line stroke-text" data-splitting>Binoy</span>
             </h1>
-            <div class="hero-role">
-                <div class="hero-role-line"></div>
-                <p class="hero-role-text"><span id="hero-typewriter"></span><span class="typewriter-cursor">|</span></p>
-                <div class="hero-role-line"></div>
+            <div class="hero-role" aria-live="polite" aria-atomic="true">
+                <div class="hero-role-line" aria-hidden="true"></div>
+                <p class="hero-role-text"><span id="hero-typewriter"></span><span class="typewriter-cursor" aria-hidden="true">|</span></p>
+                <div class="hero-role-line" aria-hidden="true"></div>
             </div>
 
             <!-- Social icons row below name -->
@@ -139,7 +195,7 @@
             </div>
         </div>
 
-        <div class="hero-footer">
+        <div class="hero-footer" aria-hidden="true">
             <div class="hero-scroll">
                 <div class="hero-scroll-line"></div>
                 <span>Scroll to explore</span>
@@ -156,7 +212,7 @@
     </div>
 
     <!-- ===== MARQUEE ===== -->
-    <div class="marquee-wrap">
+    <div class="marquee-wrap" aria-hidden="true">
         <div class="marquee-track" id="marquee-1">
             <div class="marquee-content">
                 <span>Software Engineering</span><span class="sep">/</span>
@@ -176,6 +232,7 @@
     </div>
 
     <!-- ===== ABOUT ===== -->
+    <main id="main-content">
     <section class="section about" id="about">
         <div class="container">
             <div class="section-label"><span>01</span> About</div>
@@ -481,8 +538,8 @@
     <section class="section experience" id="experience">
         <div class="container">
             <div class="section-label"><span>03</span> Experience</div>
-            <p class="experience-drag-hint">drag to explore →</p>
-            <div class="experience-scroll-outer" id="experience-scroll">
+            <p class="experience-drag-hint" aria-hidden="true">drag to explore →</p>
+            <div class="experience-scroll-outer" id="experience-scroll" role="region" aria-label="Work experience timeline" tabindex="0">
             <div class="experience-timeline">
                 <div class="experience-item fade-up">
                     <div class="experience-date">March 2026 — Present</div>
@@ -660,6 +717,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
