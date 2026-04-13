@@ -148,6 +148,36 @@ The site has no dependencies to install, no build step to run, no `.env` file to
 
 ---
 
+## Deployment & CI/CD
+
+The site is deployed automatically to [GitHub Pages](https://pages.github.com) on every push to `main`.
+
+A **daily GitHub Actions workflow** auto-syncs project data from the GitHub API into `portfolio-data.json`, which is then consumed by `script.js` to keep stats like "Public Repos" always up to date — no manual editing needed.
+
+| File | Purpose |
+|---|---|
+| `index.html` | The entire site structure — semantic HTML, ARIA landmarks, structured data |
+| `style.css` | All styles — responsive breakpoints at 1200px, 1024px, 768px, and 480px |
+| `script.js` | All interactivity — cursor, animations, GSAP, data sync |
+| `portfolio-data.json` | Auto-synced project metadata from GitHub API |
+| `manifest.json` | PWA manifest for app-like installation |
+| `robots.txt` | Search engine crawl directives |
+| `sitemap.xml` | XML sitemap for SEO |
+| `og-image.png` | Open Graph social sharing preview image |
+
+---
+
+## Production Features
+
+Beyond the visual polish, this site is built to production standards:
+
+- **Accessibility (WCAG):** Skip-to-content link, ARIA landmarks, `aria-live` on typewriter, `aria-hidden` on decorative elements, `focus-visible` outlines, `prefers-reduced-motion` support, keyboard-navigable experience carousel
+- **SEO:** Open Graph + Twitter Card meta tags, structured data (JSON-LD), canonical URL, `robots.txt`, `sitemap.xml`
+- **Security:** SRI hashes on all CDN scripts, `noopener noreferrer` on external links, email obfuscation, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`
+- **Performance:** `preconnect` / `dns-prefetch` resource hints, idle cursor auto-pause, passive scroll listeners, debounced resize handler, touch-device GPU optimizations
+
+---
+
 ## Skills on Display
 
 **Languages:** Python, JavaScript, TypeScript
