@@ -264,9 +264,12 @@ const menuOverlay = document.getElementById('menu-overlay');
 const menuLinks = document.querySelectorAll('.menu-link');
 
 burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
+    const isOpen = burger.classList.toggle('active');
     menuOverlay.classList.toggle('open');
-    if (menuOverlay.classList.contains('open')) {
+    burger.setAttribute('aria-expanded', isOpen);
+    burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    menuOverlay.setAttribute('aria-hidden', !isOpen);
+    if (isOpen) {
         lenis.stop();
     } else {
         lenis.start();
@@ -277,6 +280,9 @@ menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         burger.classList.remove('active');
         menuOverlay.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+        menuOverlay.setAttribute('aria-hidden', 'true');
         lenis.start();
     });
 });
@@ -588,7 +594,9 @@ window.addEventListener('resize', () => {
 });
 
 /* ===================================================
-   SKILLS RADAR CHART
+   SKILLS RADAR CHART — Built from hardcoded constants.
+   Note: innerHTML is safe here — all values are computed from
+   numeric constants, never from user input or external data.
    =================================================== */
 (function buildRadarChart() {
     const container = document.getElementById('skills-radar');
@@ -637,7 +645,7 @@ window.addEventListener('resize', () => {
     }).join('');
 
     container.innerHTML = `
-      <svg viewBox="0 0 260 260" width="260" height="260" class="radar-svg">
+      <svg viewBox="0 0 260 260" width="260" height="260" class="radar-svg" role="img" aria-label="Skills radar chart showing AI/ML 90%, Code 88%, Stack 85%, Cloud 82%">
         <defs>
           <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/>
             <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -687,3 +695,22 @@ document.querySelectorAll('[data-mail]').forEach(a => {
     a.href = 'mailto:' + atob(a.dataset.mail);
     a.removeAttribute('data-mail');
 });
+
+/* ===================================================
+   PORTFOLIO DATA SYNC — Update stats from portfolio-data.json
+   Bridges the auto-synced JSON data to the live page.
+   =================================================== */
+(async function syncPortfolioStats() {
+    try {
+        const res = await fetch('portfolio-data.json');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data.projects || !data.totalRepos) return;
+
+        /* Update "Public Repos" stat counter target */
+        const repoStat = document.querySelector('.stat-num[data-count]');
+        if (repoStat && data.totalRepos) {
+            repoStat.setAttribute('data-count', data.totalRepos);
+        }
+    } catch { /* Silently fail — static fallback values remain */ }
+})();
