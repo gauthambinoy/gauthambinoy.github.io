@@ -1,77 +1,63 @@
 {
   "projects": [
     {
-      "id": 1194442274,
+      "id": 1210580159,
       "num": "01",
-      "name": "luma-earth-pulse",
+      "name": "Energy-Communications-UK-I---Assesment",
       "category": "TypeScript",
-      "description": "Sapien Signal \u2014 The Pulse of Human Civilization in Real Time. 200+ APIs, 15 tabs, 3D WebGL Earth, ISS tracker, crypto sparklines, world maps. Next.js 14 + TypeScript + TailwindCSS + Three.js + Recharts + SWR + Framer Motion.",
+      "description": "Assessment repository for Energy Communications UK I \u2014 contains project files, coursework, and version history for the UKI energy communications module.",
       "stack": [
-        "TypeScript",
-        "Api",
-        "Crypto",
-        "Dashboard",
-        "Next.js"
+        "TypeScript"
       ],
       "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
-        "github": "https://github.com/gauthambinoy/luma-earth-pulse",
-        "demo": "https://unified-world-data.vercel.app"
-      },
-      "stats": {
-        "stars": 1,
-        "forks": 0,
-        "language": "TypeScript",
-        "topics": [
-          "api",
-          "crypto",
-          "dashboard",
-          "data-visualization",
-          "earthquake-data",
-          "framer-motion",
-          "free-api",
-          "fullstack",
-          "iss-tracker",
-          "nextjs",
-          "open-api",
-          "portfolio-project",
-          "react",
-          "real-time",
-          "recharts",
-          "swr",
-          "tailwindcss",
-          "typescript",
-          "vercel",
-          "world-data"
-        ],
-        "lastUpdated": "2026-04-14T00:11:55Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386471+00:00"
-    },
-    {
-      "id": 1209918783,
-      "num": "02",
-      "name": "gnosis",
-      "category": "Python",
-      "description": "\u25ce Gnosis \u2014 AI Agent Automation Platform | Neuroscience-inspired autonomous agents with 4-tier memory, self-learning, and Universal LLM Gateway",
-      "stack": [
-        "Python"
-      ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/gnosis",
+        "github": "https://github.com/gauthambinoy/Energy-Communications-UK-I---Assesment",
         "demo": null
       },
       "stats": {
         "stars": 0,
         "forks": 0,
-        "language": "Python",
+        "language": "TypeScript",
         "topics": [],
-        "lastUpdated": "2026-04-14T00:08:44Z"
+        "lastUpdated": "2026-04-14T17:01:30Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386490+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064328+00:00"
+    },
+    {
+      "id": 1194833229,
+      "num": "02",
+      "name": "gauthambinoy.github.io",
+      "category": "HTML",
+      "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
+      "stack": [
+        "HTML",
+        "Css",
+        "Github Pages",
+        "Gsap"
+      ],
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
+        "demo": "https://gauthambinoy.github.io"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "HTML",
+        "topics": [
+          "css",
+          "github-pages",
+          "gsap",
+          "html",
+          "javascript",
+          "personal-website",
+          "portfolio"
+        ],
+        "lastUpdated": "2026-04-14T09:52:55Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-04-15T00:21:58.064356+00:00"
     },
     {
       "id": 1146611283,
@@ -103,14 +89,87 @@
           "stock-market",
           "websocket"
         ],
-        "lastUpdated": "2026-04-14T00:00:23Z"
+        "lastUpdated": "2026-04-14T09:52:28Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386499+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064365+00:00"
+    },
+    {
+      "id": 1194442274,
+      "num": "04",
+      "name": "luma-earth-pulse",
+      "category": "TypeScript",
+      "description": "Sapien Signal \u2014 The Pulse of Human Civilization in Real Time. 200+ APIs, 15 tabs, 3D WebGL Earth, ISS tracker, crypto sparklines, world maps. Next.js 14 + TypeScript + TailwindCSS + Three.js + Recharts + SWR + Framer Motion.",
+      "stack": [
+        "TypeScript",
+        "Api",
+        "Crypto",
+        "Dashboard",
+        "Next.js"
+      ],
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/luma-earth-pulse",
+        "demo": "https://unified-world-data.vercel.app"
+      },
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "api",
+          "crypto",
+          "dashboard",
+          "data-visualization",
+          "earthquake-data",
+          "framer-motion",
+          "free-api",
+          "fullstack",
+          "iss-tracker",
+          "nextjs",
+          "open-api",
+          "portfolio-project",
+          "react",
+          "real-time",
+          "recharts",
+          "swr",
+          "tailwindcss",
+          "typescript",
+          "vercel",
+          "world-data"
+        ],
+        "lastUpdated": "2026-04-14T09:52:05Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-04-15T00:21:58.064376+00:00"
+    },
+    {
+      "id": 1209918783,
+      "num": "05",
+      "name": "gnosis",
+      "category": "Python",
+      "description": "\u25ce Gnosis \u2014 AI Agent Automation Platform | Neuroscience-inspired autonomous agents with 4-tier memory, self-learning, and Universal LLM Gateway",
+      "stack": [
+        "Python"
+      ],
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/gnosis",
+        "demo": null
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "Python",
+        "topics": [],
+        "lastUpdated": "2026-04-14T00:51:30Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-04-15T00:21:58.064384+00:00"
     },
     {
       "id": 1209914340,
-      "num": "04",
+      "num": "06",
       "name": "killercv-ui",
       "category": "TypeScript",
       "description": "KillerCV - Next.js dashboard for AI CV generation",
@@ -118,7 +177,7 @@
         "TypeScript",
         "Next.js"
       ],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
       "links": {
         "github": "https://github.com/gauthambinoy/killercv-ui",
         "demo": null
@@ -131,18 +190,18 @@
         "lastUpdated": "2026-04-13T23:02:16Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386512+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064389+00:00"
     },
     {
       "id": 1209914320,
-      "num": "05",
+      "num": "07",
       "name": "killercv-generator",
       "category": "JavaScript",
       "description": "KillerCV - AI-powered CV generator skill for OpenClaw",
       "stack": [
         "JavaScript"
       ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
         "github": "https://github.com/gauthambinoy/killercv-generator",
         "demo": null
@@ -155,18 +214,18 @@
         "lastUpdated": "2026-04-13T23:00:56Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386517+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064394+00:00"
     },
     {
       "id": 1207720703,
-      "num": "06",
+      "num": "08",
       "name": "killer-cv-generator",
       "category": "JavaScript",
       "description": "V3 self-learning CV engine for job applications",
       "stack": [
         "JavaScript"
       ],
-      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
       "links": {
         "github": "https://github.com/gauthambinoy/killer-cv-generator",
         "demo": null
@@ -179,46 +238,11 @@
         "lastUpdated": "2026-04-13T20:01:04Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386522+00:00"
-    },
-    {
-      "id": 1194833229,
-      "num": "07",
-      "name": "gauthambinoy.github.io",
-      "category": "HTML",
-      "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
-      "stack": [
-        "HTML",
-        "Css",
-        "Github Pages",
-        "Gsap"
-      ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
-        "demo": "https://gauthambinoy.github.io"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "HTML",
-        "topics": [
-          "css",
-          "github-pages",
-          "gsap",
-          "html",
-          "javascript",
-          "personal-website",
-          "portfolio"
-        ],
-        "lastUpdated": "2026-04-13T18:42:38Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386529+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064401+00:00"
     },
     {
       "id": 1194730821,
-      "num": "08",
+      "num": "09",
       "name": "cipher-prose-truth",
       "category": "Python",
       "description": "The Worlds Most Advanced AI Text Detection, Plagiarism Detection & Humanization Platform - 17 detection signals, 140+ features, 100% free",
@@ -228,7 +252,7 @@
         "Docker",
         "Fastapi"
       ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
       "links": {
         "github": "https://github.com/gauthambinoy/cipher-prose-truth",
         "demo": "https://clarityai-pied.vercel.app"
@@ -250,11 +274,11 @@
         "lastUpdated": "2026-04-08T19:11:13Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386537+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064407+00:00"
     },
     {
       "id": 1194790216,
-      "num": "09",
+      "num": "10",
       "name": "axiom-resume-scanner",
       "category": "Python",
       "description": "Dual-axis resume scanner: ATS compatibility + AI detection scoring",
@@ -264,7 +288,7 @@
         "Ats",
         "Docker"
       ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
       "links": {
         "github": "https://github.com/gauthambinoy/axiom-resume-scanner",
         "demo": "https://resumeshield.vercel.app"
@@ -286,16 +310,16 @@
         "lastUpdated": "2026-04-08T19:10:12Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386542+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064413+00:00"
     },
     {
       "id": 1204306225,
-      "num": "10",
+      "num": "11",
       "name": "gauthambinoy",
       "category": "Open Source",
       "description": "Profile README",
       "stack": [],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
       "links": {
         "github": "https://github.com/gauthambinoy/gauthambinoy",
         "demo": null
@@ -308,11 +332,11 @@
         "lastUpdated": "2026-04-08T19:09:21Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386547+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064417+00:00"
     },
     {
       "id": 998471236,
-      "num": "11",
+      "num": "12",
       "name": "agentic-repository",
       "category": "Open Source",
       "description": "AI agent framework for autonomous multi-step task execution",
@@ -321,7 +345,7 @@
         "Ai",
         "Automation"
       ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
       "links": {
         "github": "https://github.com/gauthambinoy/agentic-repository",
         "demo": "https://gauthambinoy.github.io/agentic-repository/"
@@ -340,11 +364,11 @@
         "lastUpdated": "2026-04-08T14:33:49Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386552+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064423+00:00"
     },
     {
       "id": 970781146,
-      "num": "12",
+      "num": "13",
       "name": "ai-video-generation",
       "category": "Open Source",
       "description": "AI-powered video generation pipeline for automated content creation",
@@ -353,7 +377,7 @@
         "Automation",
         "Ffmpeg"
       ],
-      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
         "github": "https://github.com/gauthambinoy/ai-video-generation",
         "demo": "https://gauthambinoy.github.io/ai-video-generation/"
@@ -372,11 +396,11 @@
         "lastUpdated": "2026-04-08T14:33:50Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386558+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064432+00:00"
     },
     {
       "id": 971256724,
-      "num": "13",
+      "num": "14",
       "name": "viralcut-ai",
       "category": "Python",
       "description": "ViralCut AI \u2014 automated short-form video generation for TikTok, Instagram Reels, YouTube Shorts & LinkedIn",
@@ -385,7 +409,7 @@
         "Ai",
         "Fastapi"
       ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
       "links": {
         "github": "https://github.com/gauthambinoy/viralcut-ai",
         "demo": "https://gauthambinoy.github.io/viralcut-ai/"
@@ -406,11 +430,11 @@
         "lastUpdated": "2026-04-04T17:49:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386565+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064439+00:00"
     },
     {
       "id": 947289044,
-      "num": "14",
+      "num": "15",
       "name": "devfolio-template",
       "category": "TypeScript",
       "description": "Devfolio \u2014 animated developer portfolio template. React + TypeScript + Tailwind + Framer Motion. Personalise in one file.",
@@ -420,7 +444,7 @@
         "Portfolio",
         "React"
       ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
       "links": {
         "github": "https://github.com/gauthambinoy/devfolio-template",
         "demo": "https://frontend-seven-sigma-11.vercel.app"
@@ -441,11 +465,11 @@
         "lastUpdated": "2026-04-04T17:36:00Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386574+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064446+00:00"
     },
     {
       "id": 1200798090,
-      "num": "15",
+      "num": "16",
       "name": "job-dashboard",
       "category": "TypeScript",
       "description": "Ireland graduate job aggregator \u2014 scrapes, deduplicates & presents roles from 10+ sources in a filterable dashboard",
@@ -455,7 +479,7 @@
         "Jobs",
         "Nextjs"
       ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
       "links": {
         "github": "https://github.com/gauthambinoy/job-dashboard",
         "demo": "https://job-dashboard-chi-rose.vercel.app"
@@ -476,11 +500,11 @@
         "lastUpdated": "2026-04-08T14:33:54Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386582+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064453+00:00"
     },
     {
       "id": 937804604,
-      "num": "16",
+      "num": "17",
       "name": "ba-insights-airline-analytics",
       "category": "Jupyter Notebook",
       "description": "British Airways Data Science Virtual Experience \u2014 NLP sentiment analysis & ML predictive modelling for customer buying behaviour",
@@ -490,7 +514,7 @@
         "Forage",
         "Jupyter"
       ],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
       "links": {
         "github": "https://github.com/gauthambinoy/ba-insights-airline-analytics",
         "demo": "https://nbviewer.org/github/gauthambinoy/ba-insights-airline-analytics/tree/main/"
@@ -511,11 +535,11 @@
         "lastUpdated": "2026-04-04T17:17:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386589+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064459+00:00"
     },
     {
       "id": 776847903,
-      "num": "17",
+      "num": "18",
       "name": "dwello-real-estate-platform",
       "category": "JavaScript",
       "description": "Full-stack MERN real estate platform with AI-powered listing descriptions, JWT auth, and Firebase storage",
@@ -525,7 +549,7 @@
         "Mern",
         "Mongodb"
       ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
       "links": {
         "github": "https://github.com/gauthambinoy/dwello-real-estate-platform",
         "demo": "https://dwello-real-estate.vercel.app"
@@ -546,11 +570,11 @@
         "lastUpdated": "2026-04-04T17:17:31Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386595+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064622+00:00"
     },
     {
       "id": 1094126426,
-      "num": "18",
+      "num": "19",
       "name": "retriva-hybrid-rag-engine",
       "category": "Python",
       "description": "Production-ready RAG system: hybrid BM25+FAISS retrieval, cross-encoder reranking, Gemini LLM, FastAPI + Streamlit UI",
@@ -561,7 +585,7 @@
         "Fastapi",
         "FastAPI"
       ],
-      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
         "github": "https://github.com/gauthambinoy/retriva-hybrid-rag-engine",
         "demo": "https://gauthambinoy.github.io/retriva-hybrid-rag-engine/"
@@ -583,10 +607,10 @@
         "lastUpdated": "2026-04-04T17:20:07Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-14T00:21:45.386602+00:00"
+      "syncedAt": "2026-04-15T00:21:58.064631+00:00"
     }
   ],
-  "lastGitHubSync": "2026-04-14T00:21:45.386850+00:00",
+  "lastGitHubSync": "2026-04-15T00:21:58.064805+00:00",
   "gitHubUsername": "gauthambinoy",
-  "totalRepos": 18
+  "totalRepos": 19
 }
