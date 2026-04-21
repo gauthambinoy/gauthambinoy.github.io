@@ -1,8 +1,32 @@
 {
   "projects": [
     {
-      "id": 1194833229,
+      "id": 1214386495,
       "num": "01",
+      "name": "Orion-OS",
+      "category": "Shell",
+      "description": "A GitHub project",
+      "stack": [
+        "Shell"
+      ],
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/Orion-OS",
+        "demo": null
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "Shell",
+        "topics": [],
+        "lastUpdated": "2026-04-18T18:52:26Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-04-21T00:21:09.064691+00:00"
+    },
+    {
+      "id": 1194833229,
+      "num": "02",
       "name": "gauthambinoy.github.io",
       "category": "HTML",
       "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
@@ -12,7 +36,7 @@
         "Github Pages",
         "Gsap"
       ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
       "links": {
         "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
         "demo": "https://gauthambinoy.github.io"
@@ -30,21 +54,21 @@
           "personal-website",
           "portfolio"
         ],
-        "lastUpdated": "2026-04-19T18:00:06Z"
+        "lastUpdated": "2026-04-20T00:19:42Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495096+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064723+00:00"
     },
     {
       "id": 1209918783,
-      "num": "02",
+      "num": "03",
       "name": "gnosis",
       "category": "Python",
       "description": "\u25ce Gnosis \u2014 AI Agent Automation Platform | Neuroscience-inspired autonomous agents with 4-tier memory, self-learning, and Universal LLM Gateway",
       "stack": [
         "Python"
       ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
       "links": {
         "github": "https://github.com/gauthambinoy/gnosis",
         "demo": null
@@ -57,18 +81,18 @@
         "lastUpdated": "2026-04-19T17:44:01Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495115+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064737+00:00"
     },
     {
       "id": 1215265314,
-      "num": "03",
+      "num": "04",
       "name": "shooting-game",
       "category": "HTML",
       "description": "A GitHub project",
       "stack": [
         "HTML"
       ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
       "links": {
         "github": "https://github.com/gauthambinoy/shooting-game",
         "demo": null
@@ -81,11 +105,11 @@
         "lastUpdated": "2026-04-19T17:38:37Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495122+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064745+00:00"
     },
     {
       "id": 1209914340,
-      "num": "04",
+      "num": "05",
       "name": "killercv-ui",
       "category": "TypeScript",
       "description": "KillerCV - Next.js dashboard for AI CV generation",
@@ -93,7 +117,7 @@
         "TypeScript",
         "Next.js"
       ],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
       "links": {
         "github": "https://github.com/gauthambinoy/killercv-ui",
         "demo": null
@@ -106,11 +130,11 @@
         "lastUpdated": "2026-04-19T17:38:33Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495128+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064754+00:00"
     },
     {
       "id": 1194730821,
-      "num": "05",
+      "num": "06",
       "name": "cipher-prose-truth",
       "category": "Python",
       "description": "The Worlds Most Advanced AI Text Detection, Plagiarism Detection & Humanization Platform - 17 detection signals, 140+ features, 100% free",
@@ -120,7 +144,7 @@
         "Docker",
         "Fastapi"
       ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
       "links": {
         "github": "https://github.com/gauthambinoy/cipher-prose-truth",
         "demo": "https://clarityai-pied.vercel.app"
@@ -142,31 +166,7 @@
         "lastUpdated": "2026-04-19T17:38:28Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495136+00:00"
-    },
-    {
-      "id": 1214386495,
-      "num": "06",
-      "name": "Orion-OS",
-      "category": "Shell",
-      "description": "A GitHub project",
-      "stack": [
-        "Shell"
-      ],
-      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/Orion-OS",
-        "demo": null
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "Shell",
-        "topics": [],
-        "lastUpdated": "2026-04-18T18:52:26Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495140+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064775+00:00"
     },
     {
       "id": 1212280618,
@@ -190,7 +190,7 @@
         "lastUpdated": "2026-04-18T16:34:02Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495147+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064786+00:00"
     },
     {
       "id": 1200798090,
@@ -225,7 +225,7 @@
         "lastUpdated": "2026-04-08T14:33:54Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495155+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064800+00:00"
     },
     {
       "id": 1210580159,
@@ -249,7 +249,7 @@
         "lastUpdated": "2026-04-15T19:32:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495161+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064811+00:00"
     },
     {
       "id": 1146611283,
@@ -284,7 +284,7 @@
         "lastUpdated": "2026-04-14T09:52:28Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495169+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064826+00:00"
     },
     {
       "id": 1194442274,
@@ -333,7 +333,7 @@
         "lastUpdated": "2026-04-14T09:52:05Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495177+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064841+00:00"
     },
     {
       "id": 1209914320,
@@ -357,7 +357,7 @@
         "lastUpdated": "2026-04-13T23:00:56Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495182+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064850+00:00"
     },
     {
       "id": 1207720703,
@@ -381,7 +381,7 @@
         "lastUpdated": "2026-04-13T20:01:04Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495186+00:00"
+      "syncedAt": "2026-04-21T00:21:09.064858+00:00"
     },
     {
       "id": 1194790216,
@@ -417,7 +417,7 @@
         "lastUpdated": "2026-04-08T19:10:12Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495285+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065036+00:00"
     },
     {
       "id": 1204306225,
@@ -439,7 +439,7 @@
         "lastUpdated": "2026-04-08T19:09:21Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495291+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065052+00:00"
     },
     {
       "id": 998471236,
@@ -471,7 +471,7 @@
         "lastUpdated": "2026-04-08T14:33:49Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495297+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065064+00:00"
     },
     {
       "id": 970781146,
@@ -503,7 +503,7 @@
         "lastUpdated": "2026-04-08T14:33:50Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495305+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065079+00:00"
     },
     {
       "id": 971256724,
@@ -537,7 +537,7 @@
         "lastUpdated": "2026-04-04T17:49:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495313+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065095+00:00"
     },
     {
       "id": 947289044,
@@ -572,7 +572,7 @@
         "lastUpdated": "2026-04-04T17:36:00Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495323+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065111+00:00"
     },
     {
       "id": 937804604,
@@ -607,7 +607,7 @@
         "lastUpdated": "2026-04-04T17:17:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495334+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065125+00:00"
     },
     {
       "id": 776847903,
@@ -642,7 +642,7 @@
         "lastUpdated": "2026-04-04T17:17:31Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495340+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065135+00:00"
     },
     {
       "id": 1094126426,
@@ -679,10 +679,10 @@
         "lastUpdated": "2026-04-04T17:20:07Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-20T00:19:37.495347+00:00"
+      "syncedAt": "2026-04-21T00:21:09.065147+00:00"
     }
   ],
-  "lastGitHubSync": "2026-04-20T00:19:37.495504+00:00",
+  "lastGitHubSync": "2026-04-21T00:21:09.065435+00:00",
   "gitHubUsername": "gauthambinoy",
   "totalRepos": 22
 }
