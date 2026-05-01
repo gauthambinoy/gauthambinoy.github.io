@@ -1,54 +1,8 @@
 {
   "projects": [
     {
-      "id": 1216864944,
-      "num": "01",
-      "name": "global-signal",
-      "category": "TypeScript",
-      "description": "Global Signal \u2014 real-time global intelligence dashboard with 200+ APIs, 3D Earth, maps, charts, health checks, and AI insights.",
-      "stack": [
-        "TypeScript"
-      ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/global-signal",
-        "demo": "https://global-signal.vercel.app"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "TypeScript",
-        "topics": [],
-        "lastUpdated": "2026-04-29T12:28:02Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710590+00:00"
-    },
-    {
-      "id": 1204306225,
-      "num": "02",
-      "name": "gauthambinoy",
-      "category": "Open Source",
-      "description": "GitHub profile README",
-      "stack": [],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/gauthambinoy",
-        "demo": null
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": null,
-        "topics": [],
-        "lastUpdated": "2026-04-29T10:58:44Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710619+00:00"
-    },
-    {
       "id": 1194833229,
-      "num": "03",
+      "num": "01",
       "name": "gauthambinoy.github.io",
       "category": "HTML",
       "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
@@ -58,7 +12,7 @@
         "Github Pages",
         "Gsap"
       ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
         "github": "https://github.com/gauthambinoy/gauthambinoy.github.io",
         "demo": "https://gauthambinoy.github.io"
@@ -76,10 +30,56 @@
           "personal-website",
           "portfolio"
         ],
-        "lastUpdated": "2026-04-29T00:25:53Z"
+        "lastUpdated": "2026-04-30T00:25:32Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710633+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614722+00:00"
+    },
+    {
+      "id": 1216864944,
+      "num": "02",
+      "name": "global-signal",
+      "category": "TypeScript",
+      "description": "Global Signal \u2014 real-time global intelligence dashboard with 200+ APIs, 3D Earth, maps, charts, health checks, and AI insights.",
+      "stack": [
+        "TypeScript"
+      ],
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/global-signal",
+        "demo": "https://global-signal.vercel.app"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [],
+        "lastUpdated": "2026-04-29T12:28:02Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-01T00:27:15.614755+00:00"
+    },
+    {
+      "id": 1204306225,
+      "num": "03",
+      "name": "gauthambinoy",
+      "category": "Open Source",
+      "description": "GitHub profile README",
+      "stack": [],
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/gauthambinoy",
+        "demo": null
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": null,
+        "topics": [],
+        "lastUpdated": "2026-04-29T10:58:44Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-01T00:27:15.614768+00:00"
     },
     {
       "id": 1209918783,
@@ -103,7 +103,7 @@
         "lastUpdated": "2026-04-25T19:56:37Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710642+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614781+00:00"
     },
     {
       "id": 1212280618,
@@ -127,7 +127,7 @@
         "lastUpdated": "2026-04-18T16:34:02Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710648+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614792+00:00"
     },
     {
       "id": 1214386495,
@@ -151,7 +151,7 @@
         "lastUpdated": "2026-04-18T18:52:26Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710652+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614800+00:00"
     },
     {
       "id": 1215265314,
@@ -175,7 +175,7 @@
         "lastUpdated": "2026-04-19T17:38:37Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710656+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614805+00:00"
     },
     {
       "id": 1209914340,
@@ -200,7 +200,7 @@
         "lastUpdated": "2026-04-19T17:38:33Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710661+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614813+00:00"
     },
     {
       "id": 1194730821,
@@ -236,7 +236,7 @@
         "lastUpdated": "2026-04-19T17:38:28Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710671+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614823+00:00"
     },
     {
       "id": 1200798090,
@@ -271,7 +271,7 @@
         "lastUpdated": "2026-04-08T14:33:54Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710680+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614838+00:00"
     },
     {
       "id": 1210580159,
@@ -295,7 +295,7 @@
         "lastUpdated": "2026-04-15T19:32:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710688+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614848+00:00"
     },
     {
       "id": 1146611283,
@@ -330,7 +330,7 @@
         "lastUpdated": "2026-04-14T09:52:28Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710694+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614860+00:00"
     },
     {
       "id": 1209914320,
@@ -354,7 +354,7 @@
         "lastUpdated": "2026-04-13T23:00:56Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710698+00:00"
+      "syncedAt": "2026-05-01T00:27:15.614867+00:00"
     },
     {
       "id": 1207720703,
@@ -378,7 +378,7 @@
         "lastUpdated": "2026-04-13T20:01:04Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710862+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615039+00:00"
     },
     {
       "id": 1194790216,
@@ -414,7 +414,7 @@
         "lastUpdated": "2026-04-08T19:10:12Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710869+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615046+00:00"
     },
     {
       "id": 998471236,
@@ -446,7 +446,7 @@
         "lastUpdated": "2026-04-08T14:33:49Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710875+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615051+00:00"
     },
     {
       "id": 970781146,
@@ -478,7 +478,7 @@
         "lastUpdated": "2026-04-08T14:33:50Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710880+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615057+00:00"
     },
     {
       "id": 971256724,
@@ -512,7 +512,7 @@
         "lastUpdated": "2026-04-04T17:49:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710889+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615084+00:00"
     },
     {
       "id": 947289044,
@@ -547,7 +547,7 @@
         "lastUpdated": "2026-04-04T17:36:00Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710897+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615092+00:00"
     },
     {
       "id": 937804604,
@@ -582,7 +582,7 @@
         "lastUpdated": "2026-04-04T17:17:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710909+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615103+00:00"
     },
     {
       "id": 776847903,
@@ -617,7 +617,7 @@
         "lastUpdated": "2026-04-04T17:17:31Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710914+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615109+00:00"
     },
     {
       "id": 1094126426,
@@ -654,10 +654,10 @@
         "lastUpdated": "2026-04-04T17:20:07Z"
       },
       "synced": true,
-      "syncedAt": "2026-04-30T00:25:27.710921+00:00"
+      "syncedAt": "2026-05-01T00:27:15.615117+00:00"
     }
   ],
-  "lastGitHubSync": "2026-04-30T00:25:27.711159+00:00",
+  "lastGitHubSync": "2026-05-01T00:27:15.615331+00:00",
   "gitHubUsername": "gauthambinoy",
   "totalRepos": 22
 }
