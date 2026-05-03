@@ -1,37 +1,15 @@
 {
   "projects": [
     {
-      "id": 1204306225,
-      "num": "01",
-      "name": "gauthambinoy",
-      "category": "Open Source",
-      "description": "GitHub profile README",
-      "stack": [],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/gauthambinoy",
-        "demo": null
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": null,
-        "topics": [],
-        "lastUpdated": "2026-05-01T17:10:59Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873338+00:00"
-    },
-    {
       "id": 1209918783,
-      "num": "02",
+      "num": "01",
       "name": "gnosis",
       "category": "Python",
       "description": "\u25ce Gnosis \u2014 AI Agent Automation Platform | Neuroscience-inspired autonomous agents with 4-tier memory, self-learning, and Universal LLM Gateway",
       "stack": [
         "Python"
       ],
-      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
       "links": {
         "github": "https://github.com/gauthambinoy/gnosis",
         "demo": null
@@ -44,178 +22,11 @@
         "lastUpdated": "2026-05-01T17:08:01Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873365+00:00"
-    },
-    {
-      "id": 1146611283,
-      "num": "03",
-      "name": "quantum-ledger",
-      "category": "JavaScript",
-      "description": "Real-time Stock & Crypto Portfolio Tracker with Analytics",
-      "stack": [
-        "JavaScript",
-        "Chartjs",
-        "Crypto",
-        "Fintech"
-      ],
-      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/quantum-ledger",
-        "demo": "https://cryptostock-pro.vercel.app"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "JavaScript",
-        "topics": [
-          "chartjs",
-          "crypto",
-          "fintech",
-          "python",
-          "react",
-          "stock-market",
-          "websocket"
-        ],
-        "lastUpdated": "2026-05-01T16:55:26Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873380+00:00"
-    },
-    {
-      "id": 1094126426,
-      "num": "04",
-      "name": "retriva-hybrid-rag-engine",
-      "category": "Python",
-      "description": "Production-ready RAG system: hybrid BM25+FAISS retrieval, cross-encoder reranking, Gemini LLM, FastAPI + Streamlit UI",
-      "stack": [
-        "Python",
-        "Docker",
-        "Faiss",
-        "Fastapi",
-        "FastAPI"
-      ],
-      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/retriva-hybrid-rag-engine",
-        "demo": "https://gauthambinoy.github.io/retriva-hybrid-rag-engine/"
-      },
-      "stats": {
-        "stars": 1,
-        "forks": 0,
-        "language": "Python",
-        "topics": [
-          "docker",
-          "faiss",
-          "fastapi",
-          "gemini",
-          "llm",
-          "nlp",
-          "python",
-          "rag"
-        ],
-        "lastUpdated": "2026-05-01T16:49:26Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873395+00:00"
-    },
-    {
-      "id": 1216864944,
-      "num": "05",
-      "name": "global-signal",
-      "category": "TypeScript",
-      "description": "Global Signal \u2014 real-time global intelligence dashboard with 200+ APIs, 3D Earth, maps, charts, health checks, and AI insights.",
-      "stack": [
-        "TypeScript"
-      ],
-      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/global-signal",
-        "demo": "https://global-signal.vercel.app"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "TypeScript",
-        "topics": [],
-        "lastUpdated": "2026-05-01T16:42:47Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873407+00:00"
-    },
-    {
-      "id": 1200798090,
-      "num": "06",
-      "name": "job-dashboard",
-      "category": "TypeScript",
-      "description": "Ireland graduate job aggregator \u2014 scrapes, deduplicates & presents roles from 10+ sources in a filterable dashboard",
-      "stack": [
-        "TypeScript",
-        "Dashboard",
-        "Jobs",
-        "Nextjs"
-      ],
-      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/job-dashboard",
-        "demo": "https://job-dashboard-chi-rose.vercel.app"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "TypeScript",
-        "topics": [
-          "dashboard",
-          "jobs",
-          "nextjs",
-          "nodejs",
-          "react",
-          "typescript",
-          "web-scraping"
-        ],
-        "lastUpdated": "2026-04-08T14:33:54Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873420+00:00"
-    },
-    {
-      "id": 1194730821,
-      "num": "07",
-      "name": "cipher-prose-truth",
-      "category": "Python",
-      "description": "The Worlds Most Advanced AI Text Detection, Plagiarism Detection & Humanization Platform - 17 detection signals, 140+ features, 100% free",
-      "stack": [
-        "Python",
-        "Ai",
-        "Docker",
-        "Fastapi"
-      ],
-      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-      "links": {
-        "github": "https://github.com/gauthambinoy/cipher-prose-truth",
-        "demo": "https://clarityai-pied.vercel.app"
-      },
-      "stats": {
-        "stars": 0,
-        "forks": 0,
-        "language": "Python",
-        "topics": [
-          "ai",
-          "docker",
-          "fastapi",
-          "machine-learning",
-          "nlp",
-          "python",
-          "react",
-          "text-detection"
-        ],
-        "lastUpdated": "2026-05-01T16:42:43Z"
-      },
-      "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873432+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828830+00:00"
     },
     {
       "id": 1194833229,
-      "num": "08",
+      "num": "02",
       "name": "gauthambinoy.github.io",
       "category": "HTML",
       "description": "Personal portfolio \u2014 Aurora video backgrounds, custom cursor system, smooth animations. Vanilla HTML/CSS/JS + GSAP",
@@ -243,10 +54,199 @@
           "personal-website",
           "portfolio"
         ],
-        "lastUpdated": "2026-05-01T00:27:20Z"
+        "lastUpdated": "2026-05-02T00:25:11Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873444+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828861+00:00"
+    },
+    {
+      "id": 1204306225,
+      "num": "03",
+      "name": "gauthambinoy",
+      "category": "Open Source",
+      "description": "GitHub profile README",
+      "stack": [],
+      "gradient": "linear-gradient(135deg, #0a1628, #1a3a5c, #2980b9)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/gauthambinoy",
+        "demo": null
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": null,
+        "topics": [],
+        "lastUpdated": "2026-05-01T17:10:59Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828868+00:00"
+    },
+    {
+      "id": 1146611283,
+      "num": "04",
+      "name": "quantum-ledger",
+      "category": "JavaScript",
+      "description": "Real-time Stock & Crypto Portfolio Tracker with Analytics",
+      "stack": [
+        "JavaScript",
+        "Chartjs",
+        "Crypto",
+        "Fintech"
+      ],
+      "gradient": "linear-gradient(135deg, #0a2610, #1a5c2e, #27ae60)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/quantum-ledger",
+        "demo": "https://cryptostock-pro.vercel.app"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "JavaScript",
+        "topics": [
+          "chartjs",
+          "crypto",
+          "fintech",
+          "python",
+          "react",
+          "stock-market",
+          "websocket"
+        ],
+        "lastUpdated": "2026-05-01T16:55:26Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828875+00:00"
+    },
+    {
+      "id": 1094126426,
+      "num": "05",
+      "name": "retriva-hybrid-rag-engine",
+      "category": "Python",
+      "description": "Production-ready RAG system: hybrid BM25+FAISS retrieval, cross-encoder reranking, Gemini LLM, FastAPI + Streamlit UI",
+      "stack": [
+        "Python",
+        "Docker",
+        "Faiss",
+        "Fastapi",
+        "FastAPI"
+      ],
+      "gradient": "linear-gradient(135deg, #2a0845, #6a1b9a, #ad1457)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/retriva-hybrid-rag-engine",
+        "demo": "https://gauthambinoy.github.io/retriva-hybrid-rag-engine/"
+      },
+      "stats": {
+        "stars": 1,
+        "forks": 0,
+        "language": "Python",
+        "topics": [
+          "docker",
+          "faiss",
+          "fastapi",
+          "gemini",
+          "llm",
+          "nlp",
+          "python",
+          "rag"
+        ],
+        "lastUpdated": "2026-05-01T16:49:26Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828883+00:00"
+    },
+    {
+      "id": 1216864944,
+      "num": "06",
+      "name": "global-signal",
+      "category": "TypeScript",
+      "description": "Global Signal \u2014 real-time global intelligence dashboard with 200+ APIs, 3D Earth, maps, charts, health checks, and AI insights.",
+      "stack": [
+        "TypeScript"
+      ],
+      "gradient": "linear-gradient(135deg, #1a0033, #4a0080, #7f00ff)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/global-signal",
+        "demo": "https://global-signal.vercel.app"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [],
+        "lastUpdated": "2026-05-01T16:42:47Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828891+00:00"
+    },
+    {
+      "id": 1200798090,
+      "num": "07",
+      "name": "job-dashboard",
+      "category": "TypeScript",
+      "description": "Ireland graduate job aggregator \u2014 scrapes, deduplicates & presents roles from 10+ sources in a filterable dashboard",
+      "stack": [
+        "TypeScript",
+        "Dashboard",
+        "Jobs",
+        "Nextjs"
+      ],
+      "gradient": "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/job-dashboard",
+        "demo": "https://job-dashboard-chi-rose.vercel.app"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "TypeScript",
+        "topics": [
+          "dashboard",
+          "jobs",
+          "nextjs",
+          "nodejs",
+          "react",
+          "typescript",
+          "web-scraping"
+        ],
+        "lastUpdated": "2026-04-08T14:33:54Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828898+00:00"
+    },
+    {
+      "id": 1194730821,
+      "num": "08",
+      "name": "cipher-prose-truth",
+      "category": "Python",
+      "description": "The Worlds Most Advanced AI Text Detection, Plagiarism Detection & Humanization Platform - 17 detection signals, 140+ features, 100% free",
+      "stack": [
+        "Python",
+        "Ai",
+        "Docker",
+        "Fastapi"
+      ],
+      "gradient": "linear-gradient(135deg, #1a0a2e, #2d1b69, #5b2c8e)",
+      "links": {
+        "github": "https://github.com/gauthambinoy/cipher-prose-truth",
+        "demo": "https://clarityai-pied.vercel.app"
+      },
+      "stats": {
+        "stars": 0,
+        "forks": 0,
+        "language": "Python",
+        "topics": [
+          "ai",
+          "docker",
+          "fastapi",
+          "machine-learning",
+          "nlp",
+          "python",
+          "react",
+          "text-detection"
+        ],
+        "lastUpdated": "2026-05-01T16:42:43Z"
+      },
+      "synced": true,
+      "syncedAt": "2026-05-03T00:24:15.828904+00:00"
     },
     {
       "id": 1212280618,
@@ -270,7 +270,7 @@
         "lastUpdated": "2026-04-18T16:34:02Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873458+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828911+00:00"
     },
     {
       "id": 1214386495,
@@ -294,7 +294,7 @@
         "lastUpdated": "2026-04-18T18:52:26Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873470+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828918+00:00"
     },
     {
       "id": 1215265314,
@@ -318,7 +318,7 @@
         "lastUpdated": "2026-04-19T17:38:37Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873478+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828922+00:00"
     },
     {
       "id": 1209914340,
@@ -343,7 +343,7 @@
         "lastUpdated": "2026-04-19T17:38:33Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873487+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828927+00:00"
     },
     {
       "id": 1210580159,
@@ -367,7 +367,7 @@
         "lastUpdated": "2026-04-15T19:32:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873499+00:00"
+      "syncedAt": "2026-05-03T00:24:15.828933+00:00"
     },
     {
       "id": 1209914320,
@@ -391,7 +391,7 @@
         "lastUpdated": "2026-04-13T23:00:56Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873661+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829082+00:00"
     },
     {
       "id": 1207720703,
@@ -415,7 +415,7 @@
         "lastUpdated": "2026-04-13T20:01:04Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873677+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829088+00:00"
     },
     {
       "id": 1194790216,
@@ -451,7 +451,7 @@
         "lastUpdated": "2026-04-08T19:10:12Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873690+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829094+00:00"
     },
     {
       "id": 998471236,
@@ -483,7 +483,7 @@
         "lastUpdated": "2026-04-08T14:33:49Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873700+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829100+00:00"
     },
     {
       "id": 970781146,
@@ -515,7 +515,7 @@
         "lastUpdated": "2026-04-08T14:33:50Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873717+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829108+00:00"
     },
     {
       "id": 971256724,
@@ -549,7 +549,7 @@
         "lastUpdated": "2026-04-04T17:49:52Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873731+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829115+00:00"
     },
     {
       "id": 947289044,
@@ -584,7 +584,7 @@
         "lastUpdated": "2026-04-04T17:36:00Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873753+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829126+00:00"
     },
     {
       "id": 937804604,
@@ -619,7 +619,7 @@
         "lastUpdated": "2026-04-04T17:17:19Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873768+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829133+00:00"
     },
     {
       "id": 776847903,
@@ -654,10 +654,10 @@
         "lastUpdated": "2026-04-04T17:17:31Z"
       },
       "synced": true,
-      "syncedAt": "2026-05-02T00:25:06.873779+00:00"
+      "syncedAt": "2026-05-03T00:24:15.829139+00:00"
     }
   ],
-  "lastGitHubSync": "2026-05-02T00:25:06.874124+00:00",
+  "lastGitHubSync": "2026-05-03T00:24:15.829387+00:00",
   "gitHubUsername": "gauthambinoy",
   "totalRepos": 22
 }
